@@ -1,0 +1,36 @@
+{
+  "name": "polyscan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "run": "tsx src/index.ts",
+    "get-market": "tsx src/get-market.ts",
+    "check-get-market": "tsx src/check-get-market.ts",
+    "run-old": "tsx src/old.ts",
+    "log-tx": "tsx src/log-tx-events.ts",
+    "sum-paid": "node scripts/sum-paid-orders.js",
+    "test": "tsx src/test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "@polymarket/clob-client": "^5.2.1",
+    "axios": "^1.13.4",
+    "dotenv": "^17.2.4",
+    "ethers": "^5.8.0",
+    "fs": "^0.0.1-security",
+    "node-cron": "^3.0.3",
+    "path": "^0.12.7"
+  }
+}

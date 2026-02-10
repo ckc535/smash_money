@@ -1,0 +1,43 @@
+{
+  "blockNumber": 82812542,
+  "blockHash": "0xf6736d1593ead38d1e2773b13418bb4b0d90150901425ce8d1473c9b176f6db5",
+  "transactionIndex": 119,
+  "removed": false,
+  "address": "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+  "data": "0x0000000000000000000000000000000000000000000000000000000000000000fbff232566cf868a608d0f101b91e7dc6e9b95fca618b00291b6cfe660e78bfd0000000000000000000000000000000000000000000000000000000002be35a0000000000000000000000000000000000000000000000000000000000a8cce400000000000000000000000000000000000000000000000000000000000000000",
+  "topics": [
+    "0xd0a08e8c493f9c94f29311604c9de1b4e8c8d4c06bd0c789af57f2d65bfec0f6",
+    "0x44d245e0f2600f1b746138f7c9829e966b62c1abe33097829338566557aa0829",
+    "0x000000000000000000000000ead152b855effa6b5b5837f53b24c0756830c76a",
+    "0x0000000000000000000000004bfb41d5b3570defd03c39a9a4d8de6bd8b8982e"
+  ],
+  "transactionHash": "0xf25182b106cdf0de79f583d4bf42698ca728b6ddd8bb316c7c00543cffdb3a28",
+  "logIndex": 1864,
+  "event": "OrderFilled",
+  "eventSignature": "OrderFilled(bytes32,address,address,uint256,uint256,uint256,uint256,uint256)",
+  "args": [
+    "0x44d245e0f2600f1b746138f7c9829e966b62c1abe33097829338566557aa0829",
+    "0xeAd152b855EfFa6B5B5837F53B24c0756830C76A",
+    "0x4bFb41d5B3570DeFd03C39a9A4D8dE6Bd8B8982E",
+    {
+      "type": "BigNumber",
+      "hex": "0x00"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0xfbff232566cf868a608d0f101b91e7dc6e9b95fca618b00291b6cfe660e78bfd"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0x02be35a0"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0x0a8cce40"
+    },
+    {
+      "type": "BigNumber",
+      "hex": "0x00"
+    }
+  ]
+}
