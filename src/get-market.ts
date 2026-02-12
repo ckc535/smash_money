@@ -24,7 +24,7 @@ async function main() {
   const client = await getClobClient();
   //bỏ viết in hoa conditionId
 
-  const market = await client.getMarket("0xe320a663261b9eee9e530d569c92b8ba3baaea04b6be8eaf00a6441a7e23262a")
+  const market = await client.getMarket("0x0bb9871952a993ee4b023910129578ae0e0e7d0d89d83bad60877c1f344d9e02")
   console.log(JSON.stringify(market, null, 2));
 }
 
