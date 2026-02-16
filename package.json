@@ -15,7 +15,8 @@
     "listen-regis-token": "tsx src/listen-regis-token.ts",
     "save-redis": "tsx src/save-markets-to-redis.ts",
     "sum-paid": "node scripts/sum-paid-orders.js",
-    "test": "tsx src/test.ts"
+    "test": "tsx src/test.ts",
+    "run-old-5m": "tsx src/old-5m.ts"
   },
   "keywords": [],
   "author": "",

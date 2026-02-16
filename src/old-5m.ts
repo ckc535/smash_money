@@ -1,32 +1,19 @@
 import axios from "axios";
 import fs from "fs";
 import path from "path";
-import { createClient } from "redis";
+import cron from "node-cron";
 import { ClobClient, Side, OrderType, TickSize } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
 import dotenv from "dotenv";
 dotenv.config();
 
+// true = chỉ mô phỏng (không gọi API payMoney). false = gọi payMoney thật.
 const DRY_RUN = process.env.DRY_RUN !== "false";
 
-const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
-const REDIS_KEY_PAID_ORDERS = "paid_orders";
-const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders, paid:slug)
+const SUMMARY_PATH = path.join(process.cwd(), "summary-by-slug-5m.json");
+const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders-5m.json");
 
-const MIN_USDC_SIZE_5M = 50;
-const MIN_USDC_SIZE_15M = 100;
-const ORDER_SIZE_5M = 70;
-const ORDER_SIZE_15M = 150;
-
-const is5m = (slug: string) => slug?.includes("btc-updown-5m");
-const getMinUsdcSize = (slug: string) => (is5m(slug) ? MIN_USDC_SIZE_5M : MIN_USDC_SIZE_15M);
-const getOrderSize = (slug: string) => (is5m(slug) ? ORDER_SIZE_5M : ORDER_SIZE_15M);
-
-/** Slug match cả 5m và 15m (gộp 1 file). */
-const SLUG_MATCH = (slug: string) =>
-  slug?.includes("btc-updown-5m") || slug?.includes("btc-updown-15m");
-
-let redisClient: ReturnType<typeof createClient> | null = null;
+const MIN_USDC_SIZE = 50;
 
 interface Activity {
   slug: string;
@@ -59,7 +46,7 @@ interface PaidOrder {
   totalSize: number;
   totalUsdcSize: number;
   asset: string;
-  paidAt: string;
+  paidAt: string; // ISO
   winner?: boolean;
 }
 
@@ -71,18 +58,11 @@ type MarketOutcomeInfo = {
   winner?: boolean;
 };
 
-async function getRedis() {
-  if (redisClient) return redisClient;
-  redisClient = createClient({ url: process.env.REDIS_URL || "redis://localhost:6379" });
-  redisClient.on("error", (err: Error) => console.error("[Redis]", err.message));
-  await redisClient.connect();
-  return redisClient;
-}
-
 async function getClobClient(): Promise<ClobClient> {
   const HOST = "https://clob.polymarket.com";
   const CHAIN_ID = 137;
   const signer = new Wallet(process.env.PRIVATE_KEY!);
+
   const baseClient = new ClobClient(HOST, CHAIN_ID, signer);
   const userApiCreds = await baseClient.deriveApiKey();
   return new ClobClient(
@@ -102,7 +82,11 @@ async function getActivities(address: string): Promise<Activity[]> {
   const raw = Array.isArray(response.data) ? response.data : response.data?.data ?? [];
   const data: Activity[] = [];
   for (const activity of raw) {
-    if (activity.type === "TRADE" && SLUG_MATCH(activity.slug) && activity.side === "BUY") {
+    if (
+      activity.type === "TRADE" &&
+      activity.slug?.includes("btc-updown-5m") &&
+      activity.side === "BUY"
+    ) {
       data.push(activity);
     }
   }
@@ -160,10 +144,9 @@ function aggregateBySlugAndOutcome(activities: Activity[]): SlugSummary[] {
   });
 }
 
-async function loadPaidOrdersFromRedis(): Promise<PaidOrder[]> {
-  const redis = await getRedis();
-  const raw = await redis.get(REDIS_KEY_PAID_ORDERS);
-  if (!raw) return [];
+function loadPaidOrders(): PaidOrder[] {
+  if (!fs.existsSync(PAID_ORDERS_PATH)) return [];
+  const raw = fs.readFileSync(PAID_ORDERS_PATH, "utf-8");
   try {
     return JSON.parse(raw) as PaidOrder[];
   } catch {
@@ -171,96 +154,79 @@ async function loadPaidOrdersFromRedis(): Promise<PaidOrder[]> {
   }
 }
 
-async function savePaidOrdersToRedis(orders: PaidOrder[]): Promise<void> {
-  const redis = await getRedis();
-  await redis.set(REDIS_KEY_PAID_ORDERS, JSON.stringify(orders), { EX: REDIS_EXPIRE_SEC });
-}
-
-function loadPaidOrdersFromFile(): PaidOrder[] {
-  if (!fs.existsSync(PAID_ORDERS_PATH)) return [];
-  try {
-    const raw = fs.readFileSync(PAID_ORDERS_PATH, "utf-8");
-    const data = JSON.parse(raw);
-    return Array.isArray(data) ? data : [];
-  } catch {
-    return [];
-  }
-}
-
-function savePaidOrdersToFile(orders: PaidOrder[]): void {
+function savePaidOrders(orders: PaidOrder[]): void {
   fs.writeFileSync(PAID_ORDERS_PATH, JSON.stringify(orders, null, 2), "utf-8");
 }
 
+/** Slug đã mua (bất kỳ outcome) thì bỏ qua. Trả về danh sách SlugSummary cần pay: mỗi slug tối đa 1 outcome (outcome có totalUsdcSize lớn hơn; nếu < MIN_USDC_SIZE thì bỏ qua). */
 function pickCandidatesToPay(
   summary: SlugSummary[],
   paidOrders: PaidOrder[]
 ): SlugSummary[] {
   const paidSlugs = new Set(paidOrders.map((p) => p.slug));
+
   const bySlug = new Map<string, SlugSummary[]>();
   for (const s of summary) {
     const list = bySlug.get(s.slug) ?? [];
     list.push(s);
     bySlug.set(s.slug, list);
   }
+
   const candidates: SlugSummary[] = [];
   for (const [, list] of bySlug.entries()) {
     if (paidSlugs.has(list[0]!.slug)) continue;
+
     const withLargerUsdc = list.sort((a, b) => b.totalUsdcSize - a.totalUsdcSize);
     const chosen = withLargerUsdc[0]!;
-    if (chosen.totalUsdcSize < getMinUsdcSize(chosen.slug)) continue;
+    if (chosen.totalUsdcSize < MIN_USDC_SIZE) continue;
+
     candidates.push(chosen);
   }
   return candidates;
 }
 
-/** Pay một lệnh (createAndPostOrder) — version cũ, từng order một. */
 async function payMoney(
   client: ClobClient,
   tokenId: string,
   side: Side,
   price: number,
-  size: number,
   negRisk: boolean,
   tickSize: number
 ): Promise<unknown> {
   if (DRY_RUN) {
-    console.log("[DRY_RUN] payMoney simulated:", { tokenId, side, price, size, negRisk, tickSize });
+    console.log("[DRY_RUN] payMoney simulated:", { tokenId, side, negRisk, tickSize });
     return { dryRun: true };
   }
   const response = await client.createAndPostOrder(
     {
       tokenID: tokenId,
       price,
-      size,
+      size:70,
       side,
-      //convert to 13 minutes from now
-      expiration: Math.floor(Date.now() / 1000) + 13 * 60 // 13 minutes from now 
-    },{tickSize: String(0.01) as TickSize, negRisk},
-    OrderType.GTD
+    },
+    {
+      tickSize: tickSize as unknown as TickSize,
+      negRisk,
+    },
+    OrderType.GTC
   );
-  
-  console.log("[payMoney] result:", response);
+  console.log("payMoney result:", response);
   return response;
 }
 
+/** Cron 1: mỗi 3 phút — update summary-by-slug.json rồi chạy logic payMoney (có điều kiện). */
 async function runCron1(): Promise<void> {
   const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
   const activities = await getActivities(address);
   const summary = aggregateBySlugAndOutcome(activities);
 
-  const paidOrders = await loadPaidOrdersFromRedis();
-  let candidates = pickCandidatesToPay(summary, paidOrders);
-  if (candidates.length === 0) return;
+  fs.writeFileSync(SUMMARY_PATH, JSON.stringify(summary, null, 2), "utf-8");
 
-  const redis = await getRedis();
-  const stillNotInRedis: SlugSummary[] = [];
-  for (const c of candidates) {
-    const key = `paid:${c.slug}`;
-    const exists = await redis.get(key);
-    if (!exists) stillNotInRedis.push(c);
+  const paidOrders = loadPaidOrders();
+  const candidates = pickCandidatesToPay(summary, paidOrders);
+  if (candidates.length === 0) {
+    return;
   }
-  candidates = stillNotInRedis;
-  if (candidates.length === 0) return;
 
   const client = await getClobClient();
   const newPaid: PaidOrder[] = [];
@@ -273,12 +239,7 @@ async function runCron1(): Promise<void> {
         console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
         continue;
       }
-      const price = Math.round(c.avgPrice * 100) / 100;
-      const size = getOrderSize(c.slug);
-      await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-      if(c.slug.includes("btc-updown-15m")) {
-        await payMoney(client, info.tokenId, Side.BUY, 0.1, 100, info.negRisk, info.tickSize);
-      }
+      await payMoney(client, info.tokenId, Side.BUY, Math.round(c.avgPrice * 100) / 100, info.negRisk, info.tickSize);
       newPaid.push({
         slug: c.slug,
         title: c.title,
@@ -290,28 +251,23 @@ async function runCron1(): Promise<void> {
         paidAt: new Date().toISOString(),
       });
     } catch (err) {
-      console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
+      console.error("[Cron1] Lỗi payMoney cho", c.slug, err);
     }
   }
 
   if (newPaid.length > 0) {
-    const updated = [...paidOrders, ...newPaid];
-    await savePaidOrdersToRedis(updated);
-    savePaidOrdersToFile(updated);
-    for (const o of newPaid) {
-      await redis.setEx(`paid:${o.slug}`, REDIS_EXPIRE_SEC, "1");
-    }
-    console.log("[Cron1] Đã lưu", newPaid.length, "lệnh vào Redis (paid_orders + paid:slug) và file", PAID_ORDERS_PATH);
+    savePaidOrders([...paidOrders, ...newPaid]);
+    console.log("[Cron1] Đã lưu", newPaid.length, "lệnh vào", PAID_ORDERS_PATH);
   }
   console.log("[Cron1] Xong.");
 }
 
-/** Cron 2: lấy winner từ market và cập nhật paid-orders (file + Redis) cho cả 2 slug. Chạy mỗi 30p. */
+/** Cron 2: lấy winner từ market và cập nhật file paid-orders. */
 async function runCron2(): Promise<void> {
   console.log("[Cron2] Cập nhật winner...");
-  const paidOrders = loadPaidOrdersFromFile();
+  const paidOrders = loadPaidOrders();
   if (paidOrders.length === 0) {
-    console.log("[Cron2] Chưa có lệnh nào trong file.");
+    console.log("[Cron2] Chưa có lệnh nào.");
     return;
   }
 
@@ -319,6 +275,8 @@ async function runCron2(): Promise<void> {
   const conditionIds = [...new Set(paidOrders.map((p) => p.conditionId))];
   const winnerByCondition = new Map<string, string>(); // conditionId -> outcome (winner)
 
+  // Chỉ khi market đã resolve thì API trả về đúng 1 outcome có winner === true.
+  // Khi chưa có kết quả, cả 2 outcome đều winner === false hoặc undefined → không set winnerByCondition.
   for (const cid of conditionIds) {
     try {
       const market = await getMarket(client, cid);
@@ -329,36 +287,35 @@ async function runCron2(): Promise<void> {
         }
       }
     } catch (err) {
-      console.warn("[Cron2] Không lấy được market", cid, (err as Error)?.message);
+      console.warn("[Cron2] Không lấy được market", cid, err);
     }
   }
 
   let updated = 0;
   const next = paidOrders.map((o) => {
     const winnerOutcome = winnerByCondition.get(o.conditionId);
+    // Chưa resolve: winnerOutcome === undefined → giữ nguyên, winner vẫn undefined (không ghi false).
     if (winnerOutcome === undefined) return o;
     const winner = o.outcome === winnerOutcome;
     if (o.winner !== winner) updated++;
     return { ...o, winner };
   });
   if (updated > 0) {
-    savePaidOrdersToFile(next);
-    console.log("[Cron2] Đã cập nhật", updated, "winner.");
+    savePaidOrders(next);
   }
   console.log("[Cron2] Xong.");
 }
 
 async function main(): Promise<void> {
-  console.log("DRY_RUN =", DRY_RUN);
-  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH, "| Dup: Redis paid:slug TTL", REDIS_EXPIRE_SEC, "s");
+  console.log("DRY_RUN =", DRY_RUN, "(true = chỉ mô phỏng, không gọi payMoney thật)");
 
-  setInterval(() => runCron1(), 10 * 1000);
-  setInterval(() => runCron2(), 30 * 60 * 1000); // Cron2: mỗi 30 phút (update winner)
+  setInterval(() => runCron1(), 15 * 1000); // Cron1: mỗi 10 giây (summary + pay)
+  cron.schedule("*/10 * * * *", () => runCron2()); // Cron2: mỗi 10 phút (update winner)
 
   await runCron1();
   await runCron2();
 
-  console.log("Cron: Cron1 mỗi 10s (pay), Cron2 mỗi 30p (winner). Slug: 5m + 15m.");
+  console.log("Cron đã lên lịch: Cron1 mỗi 10 giây, Cron2 mỗi 10 phút.");
 }
 
 main();
