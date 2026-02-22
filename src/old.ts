@@ -1,9 +1,9 @@
-import axios from "axios";
 import fs from "fs";
 import path from "path";
 import { createClient } from "redis";
 import { ClobClient, Side, OrderType, TickSize } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
+import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -12,10 +12,11 @@ const DRY_RUN = process.env.DRY_RUN !== "false";
 const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
 const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders, paid:slug)
+const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
 
 const MIN_USDC_SIZE_5M = 50;
 const MIN_USDC_SIZE_15M = 100;
-const ORDER_SIZE_5M = 70;
+const ORDER_SIZE_5M = 100;
 const ORDER_SIZE_15M = 150;
 
 const is5m = (slug: string) => slug?.includes("btc-updown-5m");
@@ -96,17 +97,26 @@ async function getClobClient(): Promise<ClobClient> {
 }
 
 async function getActivities(address: string): Promise<Activity[]> {
-  const response = await axios.get(
-    `https://data-api.polymarket.com/activity?user=${address}&limit=50&offset=0`
-  );
-  const raw = Array.isArray(response.data) ? response.data : response.data?.data ?? [];
-  const data: Activity[] = [];
-  for (const activity of raw) {
-    if (activity.type === "TRADE" && SLUG_MATCH(activity.slug) && activity.side === "BUY") {
-      data.push(activity);
+  try {
+    const response = await axios.get(
+      `https://data-api.polymarket.com/activity?user=${address}&limit=50&offset=0`,
+      { timeout: 5000, validateStatus: () => true}
+    );
+    const body = response.data;
+    const raw = Array.isArray(body) ? body : body?.data ?? [];
+    const data: Activity[] = [];
+    for (const activity of raw) {
+      if (activity.type === "TRADE" && SLUG_MATCH(activity.slug) && activity.side === "BUY") {
+        data.push(activity);
+      }
     }
+    return data;
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    const code = err && typeof (err as { code?: string }).code === "string" ? (err as { code: string }).code : "";
+    console.warn("[getActivities] Lỗi request (bỏ qua):", code || msg);
+    return [];
   }
-  return data;
 }
 
 async function getMarket(
@@ -176,17 +186,6 @@ async function savePaidOrdersToRedis(orders: PaidOrder[]): Promise<void> {
   await redis.set(REDIS_KEY_PAID_ORDERS, JSON.stringify(orders), { EX: REDIS_EXPIRE_SEC });
 }
 
-function loadPaidOrdersFromFile(): PaidOrder[] {
-  if (!fs.existsSync(PAID_ORDERS_PATH)) return [];
-  try {
-    const raw = fs.readFileSync(PAID_ORDERS_PATH, "utf-8");
-    const data = JSON.parse(raw);
-    return Array.isArray(data) ? data : [];
-  } catch {
-    return [];
-  }
-}
-
 function savePaidOrdersToFile(orders: PaidOrder[]): void {
   fs.writeFileSync(PAID_ORDERS_PATH, JSON.stringify(orders, null, 2), "utf-8");
 }
@@ -244,108 +243,90 @@ async function payMoney(
 }
 
 async function runCron1(): Promise<void> {
-  const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
-  const activities = await getActivities(address);
-  const summary = aggregateBySlugAndOutcome(activities);
-
-  const paidOrders = await loadPaidOrdersFromRedis();
-  let candidates = pickCandidatesToPay(summary, paidOrders);
-  if (candidates.length === 0) return;
-
-  const redis = await getRedis();
-  const stillNotInRedis: SlugSummary[] = [];
-  for (const c of candidates) {
-    const key = `paid:${c.slug}`;
-    const exists = await redis.get(key);
-    if (!exists) stillNotInRedis.push(c);
-  }
-  candidates = stillNotInRedis;
-  if (candidates.length === 0) return;
-
-  const client = await getClobClient();
-  const newPaid: PaidOrder[] = [];
-
-  for (const c of candidates) {
+  let lastErr: Error | undefined;
+  for (let attempt = 1; attempt <= CRON1_MAX_RETRIES; attempt++) {
     try {
-      const market = await getMarket(client, c.conditionId);
-      const info = market[c.outcome];
-      if (!info) {
-        console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
-        continue;
+      const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
+      const activities = await getActivities(address);
+      const summary = aggregateBySlugAndOutcome(activities);
+
+      const paidOrders = await loadPaidOrdersFromRedis();
+      let candidates = pickCandidatesToPay(summary, paidOrders);
+      if (candidates.length === 0) return;
+
+      const redis = await getRedis();
+      const stillNotInRedis: SlugSummary[] = [];
+      for (const c of candidates) {
+        const key = `paid:${c.slug}`;
+        const exists = await redis.get(key);
+        if (!exists) stillNotInRedis.push(c);
       }
-      const price = Math.round(c.avgPrice * 100) / 100;
-      const size = getOrderSize(c.slug);
-      await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-      if(c.slug.includes("btc-updown-15m")) {
-        await payMoney(client, info.tokenId, Side.BUY, 0.1, 100, info.negRisk, info.tickSize);
-      }
-      newPaid.push({
-        slug: c.slug,
-        title: c.title,
-        outcome: c.outcome,
-        conditionId: c.conditionId,
-        totalSize: c.totalSize,
-        totalUsdcSize: c.totalUsdcSize,
-        asset: c.asset,
-        paidAt: new Date().toISOString(),
-      });
-    } catch (err) {
-      console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
-    }
-  }
+      candidates = stillNotInRedis;
+      if (candidates.length === 0) return;
 
-  if (newPaid.length > 0) {
-    const updated = [...paidOrders, ...newPaid];
-    await savePaidOrdersToRedis(updated);
-    savePaidOrdersToFile(updated);
-    for (const o of newPaid) {
-      await redis.setEx(`paid:${o.slug}`, REDIS_EXPIRE_SEC, "1");
-    }
-    console.log("[Cron1] Đã lưu", newPaid.length, "lệnh vào Redis (paid_orders + paid:slug) và file", PAID_ORDERS_PATH);
-  }
-  console.log("[Cron1] Xong.");
-}
+      const client = await getClobClient();
+      const newPaid: PaidOrder[] = [];
 
-/** Cron 2: lấy winner từ market và cập nhật paid-orders (file + Redis) cho cả 2 slug. Chạy mỗi 30p. */
-async function runCron2(): Promise<void> {
-  console.log("[Cron2] Cập nhật winner...");
-  const paidOrders = loadPaidOrdersFromFile();
-  if (paidOrders.length === 0) {
-    console.log("[Cron2] Chưa có lệnh nào trong file.");
-    return;
-  }
-
-  const client = await getClobClient();
-  const conditionIds = [...new Set(paidOrders.map((p) => p.conditionId))];
-  const winnerByCondition = new Map<string, string>(); // conditionId -> outcome (winner)
-
-  for (const cid of conditionIds) {
-    try {
-      const market = await getMarket(client, cid);
-      for (const [outcome, info] of Object.entries(market)) {
-        if (info.winner === true) {
-          winnerByCondition.set(cid, outcome);
-          break;
+      for (const c of candidates) {
+        try {
+          const market = await getMarket(client, c.conditionId);
+          const info = market[c.outcome];
+          if (!info) {
+            console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
+            continue;
+          }
+          let price = Math.round(c.avgPrice * 100) / 100;
+          const size = getOrderSize(c.slug);
+          if (c.slug.includes("btc-updown-15m")) {
+            price = 0.35;
+          }
+          await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
+          newPaid.push({
+            slug: c.slug,
+            title: c.title,
+            outcome: c.outcome,
+            conditionId: c.conditionId,
+            totalSize: c.totalSize,
+            totalUsdcSize: c.totalUsdcSize,
+            asset: c.asset,
+            paidAt: new Date().toISOString(),
+          });
+        } catch (err) {
+          console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
         }
       }
+
+      if (newPaid.length > 0) {
+        const updated = [...paidOrders, ...newPaid];
+        await savePaidOrdersToRedis(updated);
+        savePaidOrdersToFile(updated);
+        for (const o of newPaid) {
+          await redis.setEx(`paid:${o.slug}`, REDIS_EXPIRE_SEC, "1");
+        }
+        console.log(`[Cron1] Đã lưu ${newPaid.length} lệnh vào Redis (paid_orders + paid:slug) và file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
+      }
+      console.log("[Cron1] Xong.");
+      return;
     } catch (err) {
-      console.warn("[Cron2] Không lấy được market", cid, (err as Error)?.message);
+      lastErr = err instanceof Error ? err : new Error(String(err));
+      const code = err && typeof (err as { code?: string }).code === "string" ? (err as { code: string }).code : "";
+      console.error(
+        `[Cron1] Lỗi lần ${attempt}/${CRON1_MAX_RETRIES}:`,
+        code || lastErr.message
+      );
+      if (attempt < CRON1_MAX_RETRIES) {
+        console.log(`[Cron1] Thử lại sau 3s... (còn ${CRON1_MAX_RETRIES - attempt} lần)`);
+        await new Promise((r) => setTimeout(r, 3000));
+      }
     }
   }
-
-  let updated = 0;
-  const next = paidOrders.map((o) => {
-    const winnerOutcome = winnerByCondition.get(o.conditionId);
-    if (winnerOutcome === undefined) return o;
-    const winner = o.outcome === winnerOutcome;
-    if (o.winner !== winner) updated++;
-    return { ...o, winner };
-  });
-  if (updated > 0) {
-    savePaidOrdersToFile(next);
-    console.log("[Cron2] Đã cập nhật", updated, "winner.");
-  }
-  console.log("[Cron2] Xong.");
+  console.error(
+    "[Cron1] Đã thử",
+    CRON1_MAX_RETRIES,
+    "lần không thành công. Lỗi cuối:",
+    lastErr?.message ?? "unknown"
+  );
+  process.exit(1);
 }
 
 async function main(): Promise<void> {
@@ -353,12 +334,10 @@ async function main(): Promise<void> {
   console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH, "| Dup: Redis paid:slug TTL", REDIS_EXPIRE_SEC, "s");
 
   setInterval(() => runCron1(), 10 * 1000);
-  setInterval(() => runCron2(), 30 * 60 * 1000); // Cron2: mỗi 30 phút (update winner)
 
   await runCron1();
-  await runCron2();
 
-  console.log("Cron: Cron1 mỗi 10s (pay), Cron2 mỗi 30p (winner). Slug: 5m + 15m.");
+  console.log("Cron: Cron1 mỗi 10s (pay). Slug: 5m + 15m.");
 }
 
 main();
