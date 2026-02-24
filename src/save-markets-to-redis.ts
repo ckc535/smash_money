@@ -22,8 +22,8 @@ interface TokenData {
     slug: string;
     question: string;
     tokenId: string;
-    pairedTokenId: string;
     negRisk: boolean;
+    outcome: "up" | "down"; // Index 0 = up, Index 1 = down
 }
 
 async function getMarketBySlug(slug: string): Promise<any | null> {
@@ -121,6 +121,7 @@ async function fetchAndSaveMarketsToRedis(startSlug: string) {
         }
 
         // Parse clobTokenIds (format: "[\"token1\", \"token2\"]" - JSON array string)
+        // Index 0 = UP, Index 1 = DOWN
         let tokenIds: string[];
         try {
             tokenIds = JSON.parse(market.clobTokenIds);
@@ -134,36 +135,36 @@ async function fetchAndSaveMarketsToRedis(startSlug: string) {
             continue;
         }
 
-        const [token0, token1] = tokenIds;
+        const [upTokenId, downTokenId] = tokenIds;
 
-        // Create data for token0
-        const token0Data: TokenData = {
+        // Create data for UP token (index 0)
+        const upTokenData: TokenData = {
             conditionId: market.conditionId,
             slug: market.slug,
             question: market.question,
-            tokenId: token0,
-            pairedTokenId: token1,
-            negRisk: market.negRisk
+            tokenId: upTokenId,
+            negRisk: market.negRisk,
+            outcome: "up"
         };
 
-        // Create data for token1
-        const token1Data: TokenData = {
+        // Create data for DOWN token (index 1)
+        const downTokenData: TokenData = {
             conditionId: market.conditionId,
             slug: market.slug,
             question: market.question,
-            tokenId: token1,
-            pairedTokenId: token0,
-            negRisk: market.negRisk
+            tokenId: downTokenId,
+            negRisk: market.negRisk,
+            outcome: "down"
         };
 
         // Save to Redis with keys: token:{tokenId} and 24 hour expiry (86400 seconds)
         const EXPIRY_SECONDS = 86400; // 24 hours
-        await redis.set(`token:${token0}`, JSON.stringify(token0Data), { EX: EXPIRY_SECONDS });
-        await redis.set(`token:${token1}`, JSON.stringify(token1Data), { EX: EXPIRY_SECONDS });
+        await redis.set(`token:${upTokenId}`, JSON.stringify(upTokenData), { EX: EXPIRY_SECONDS });
+        await redis.set(`token:${downTokenId}`, JSON.stringify(downTokenData), { EX: EXPIRY_SECONDS });
 
         totalTokensSaved += 2;
 
-        console.log(`✅ Saved tokens for ${market.slug}: ${token0}, ${token1}`);
+        console.log(`✅ Saved tokens for ${market.slug}: ${upTokenId} (up), ${downTokenId} (down)`);
     }
 
     console.log(`\n🎉 Successfully saved ${totalTokensSaved} tokens to Redis`);
@@ -209,7 +210,7 @@ async function main() {
         await queryTokenFromRedis(tokenId);
     } else {
         // Fetch và save vào Redis
-        const startSlug = process.argv[2] || "btc-updown-5m-1770893700";
+        const startSlug = process.argv[2] || "btc-updown-5m-1771837500";
         console.log(new Date().toISOString(), `Starting with slug: ${startSlug}`);
         await fetchAndSaveMarketsToRedis(startSlug);
     }

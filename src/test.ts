@@ -16,7 +16,7 @@ let provider = new ethers.providers.WebSocketProvider("wss://polygon.drpc.org");
 
 const contractAbi = fs.readFileSync(path.join(__dirname, "abi", "abi.js"), "utf8");
 const contractAddress = "0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e";
-const MAKER_FILTER = "0x6031B6eed1C97e853c6e0F03Ad3ce3529351F96d".toLowerCase();
+const MAKER_FILTER = "0x0eA574F3204C5c9C0cdEad90392ea0990F4D17e4".toLowerCase();
 let contract = new ethers.Contract(contractAddress, contractAbi, provider);
 
 // Aggregated order data - không lưu từng event nữa, lưu tổng luôn
@@ -45,7 +45,7 @@ const redisClient = createClient({
   url: process.env.REDIS_URL || "redis-10932.crce194.ap-seast-1-1.ec2.cloud.redislabs.com:10932",
 });
 
-redisClient.on("error", (err: Error) => console.error("[Redis] Error:", err));
+redisClient.on("error", (err: Error) => process.stderr.write(`[Redis] Error: ${err.message}\n`));
 
 // Types từ index.ts
 type MarketOutcomeInfo = {
@@ -62,8 +62,8 @@ type TokenData = {
   slug: string;
   question: string;
   tokenId: string;
-  pairedTokenId: string;
   negRisk: boolean;
+  outcome: "up" | "down"; // Index 0 = up, Index 1 = down
 };
 
 function toStr(v: unknown): string {
@@ -132,12 +132,11 @@ async function payOrder(order: AggregatedOrder): Promise<void> {
   };
 
   if (DRY_RUN) {
-    console.log(`[DRY_RUN] price=${order.price}, size=${orderSize}, oldSize=${oldSize}`);
+    // Dùng process.stdout.write thay console.log (nhanh hơn một chút)
+    process.stdout.write(`[DRY_RUN] outcome=${order.tokenData.outcome}, price=${order.price}, size=${orderSize}, oldSize=${oldSize}\n`);
     return;
   }
   
-  // Determine outcome từ assetId
-  const isYes = order.tokenData.tokenId === order.assetId;
   const tokenId = order.assetId;
   
   try {
@@ -151,7 +150,8 @@ async function payOrder(order: AggregatedOrder): Promise<void> {
       negRisk: order.tokenData.negRisk,
     }, OrderType.GTC);
   } catch (err) {
-    console.error("[payOrder] Failed", order.conditionId, (err as Error)?.message);
+    // Chỉ log error khi thật sự fail
+    process.stderr.write(`[payOrder] Failed ${order.conditionId} ${(err as Error)?.message}\n`);
   }
 }
 
@@ -159,7 +159,7 @@ async function payOrder(order: AggregatedOrder): Promise<void> {
 /** Thiết lập event listener cho contract */
 function setupContractListener(): void {
   contract.on("OrderFilled", (orderHash: string, maker: string, taker: string, makerAssetId: number, takerAssetId: number, makerAmountFilled: number, takerAmountFilled: number, fee: number, ev: ethers.Event) => {
-    if (toStr(maker).toLowerCase() !== MAKER_FILTER.toLowerCase()) return;
+    if (toStr(maker).toLowerCase() !== MAKER_FILTER) return;
 
     const assetId = toStr(takerAssetId);
 
@@ -169,68 +169,39 @@ function setupContractListener(): void {
 
     // Calculate price (làm tròn 2 số thập phân)
     const price = Math.round((makerAmountFilled / takerAmountFilled) * 100) / 100;
-    const priceKey = `${tokenData.conditionId}|${assetId}|${price}`;
 
-    // Nếu có price mới HOẶC assetId mới → flush tất cả queues cũ
-    // Tính trực tiếp từ priceQueues hiện tại (không maintain riêng)
-    if (priceQueues.size > 0) {
-      const currentQueues = Array.from(priceQueues.values());
-      const hasThisPrice = currentQueues.some(o => o.price === price);
-      const hasThisAsset = currentQueues.some(o => o.assetId === assetId);
-      
-      // Nếu price HOẶC assetId chưa có trong queue → flush tất cả
-      if (!hasThisPrice || !hasThisAsset) {
-        flushAllQueues(); // Fire and forget
-      }
-    }
+    // Tạo order từ event ngay - không queue
+    const order: AggregatedOrder = {
+      conditionId: tokenData.conditionId,
+      assetId: assetId,
+      price: price,
+      totalUsdcAmount: 0, // Không dùng, để 0 cho nhanh
+      totalShareAmount: Number(ethers.utils.formatUnits(takerAmountFilled, 6)),
+      tokenData: tokenData,
+    };
 
-    // Get hoặc create aggregated order cho priceKey này
-    let order = priceQueues.get(priceKey);
-    if (!order) {
-      order = {
-        conditionId: tokenData.conditionId,
-        assetId: assetId,
-        price: price,
-        totalUsdcAmount: 0,
-        totalShareAmount: 0,
-        tokenData: tokenData,
-      };
-      priceQueues.set(priceKey, order);
-    }
-
-    // Aggregate: cộng dồn amounts
-    order.totalUsdcAmount += Number(ethers.utils.formatUnits(makerAmountFilled, 6));
-    order.totalShareAmount += Number(ethers.utils.formatUnits(takerAmountFilled, 6));
-
-    // Reset timer: 200ms sau event cuối cùng sẽ flush
-    const existingTimer = priceTimers.get(priceKey);
-    if (existingTimer) {
-      clearTimeout(existingTimer);
-    }
-
-    const timer = setTimeout(() => {
-      flushPriceQueue(priceKey);
-    }, QUEUE_TIMEOUT_MS);
-
-    priceTimers.set(priceKey, timer);
+    // Bắn order ngay lập tức - không đợi (bỏ log để tối ưu tốc độ)
+    payOrder(order).catch(err => {
+      // Silent fail - không log để không block event loop
+    });
   });
 }
 
 /** Xử lý lỗi WebSocket và reconnect */
 function setupWebSocketErrorHandling(): void {
   provider._websocket.on("open", () => {
-    console.log("[WebSocket] Connection opened successfully");
+    process.stdout.write("[WebSocket] Connection opened successfully\n");
   });
 
   provider._websocket.on("error", (error: Error) => {
-    console.error("[WebSocket] Error:", error.message);
+    process.stderr.write(`[WebSocket] Error: ${error.message}\n`);
   });
 
   provider._websocket.on("close", (code: number) => {
-    console.log(`[WebSocket] Connection closed with code ${code}. Reconnecting in ${WEBSOCKET_RECONNECT_DELAY}ms...`);
+    process.stdout.write(`[WebSocket] Connection closed with code ${code}. Reconnecting in ${WEBSOCKET_RECONNECT_DELAY}ms...\n`);
     
     setTimeout(() => {
-      console.log("[WebSocket] Attempting to reconnect...");
+      process.stdout.write("[WebSocket] Attempting to reconnect...\n");
       // Tạo provider mới
       provider = new ethers.providers.WebSocketProvider("wss://polygon.drpc.org");
       contract = new ethers.Contract(contractAddress, contractAbi, provider);
@@ -239,17 +210,17 @@ function setupWebSocketErrorHandling(): void {
       setupContractListener();
       setupWebSocketErrorHandling();
       
-      console.log("[WebSocket] Reconnected successfully");
+      process.stdout.write("[WebSocket] Reconnected successfully\n");
     }, WEBSOCKET_RECONNECT_DELAY);
   });
 }
 
 /** Pre-load tất cả tokens từ Redis vào cache */
 async function preloadTokensFromRedis(): Promise<void> {
-  console.log("[Redis] Pre-loading tokens into cache...");
+  process.stdout.write("[Redis] Pre-loading tokens into cache...\n");
   try {
     const keys = await redisClient.keys("token:*");
-    console.log(`[Redis] Found ${keys.length} tokens`);
+    process.stdout.write(`[Redis] Found ${keys.length} tokens\n`);
     
     // Load tất cả parallel với Promise.all
     const dataArray = await Promise.all(keys.map(key => redisClient.get(key)));
@@ -263,9 +234,9 @@ async function preloadTokensFromRedis(): Promise<void> {
         loaded++;
       }
     }
-    console.log(`[Redis] Pre-loaded ${loaded} tokens into cache`);
+    process.stdout.write(`[Redis] Pre-loaded ${loaded} tokens into cache\n`);
   } catch (err) {
-    console.error("[Redis] Pre-load failed:", (err as Error)?.message);
+    process.stderr.write(`[Redis] Pre-load failed: ${(err as Error)?.message}\n`);
   }
 }
 
