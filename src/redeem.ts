@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import { createWalletClient, Hex, http, encodeFunctionData } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { polygon } from "viem/chains";
@@ -6,6 +8,8 @@ import { BuilderConfig } from "@polymarket/builder-signing-sdk";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
+
+const REDEEMED_LOG_PATH = path.join(process.cwd(), "redeemed-positions.json");
 
 const CTF_CONTRACT_ADDRESS = "0x4d97dcd97ec945f40cf65f87097ace5ea0476045";
 const USDCE_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174";
@@ -39,6 +43,34 @@ interface Position {
   outcome?: string;
   slug?: string;
   redeemable?: boolean;
+}
+
+interface RedeemedEntry {
+  conditionId: string;
+  title?: string;
+  slug?: string;
+  outcome?: string;
+  asset: string;
+  size: number;
+  value: number;
+  redeemedAt: string;
+  txHash?: string;
+}
+
+function loadRedeemedLog(): RedeemedEntry[] {
+  try {
+    const raw = fs.readFileSync(REDEEMED_LOG_PATH, "utf-8");
+    const data = JSON.parse(raw);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function appendRedeemedToFile(entries: RedeemedEntry[]): void {
+  const log = loadRedeemedLog();
+  log.push(...entries);
+  fs.writeFileSync(REDEEMED_LOG_PATH, JSON.stringify(log, null, 2), "utf-8");
 }
 
 async function loadPositions(address: string): Promise<Position[]> {
@@ -101,6 +133,7 @@ export async function runRedeem(): Promise<void> {
   console.log("════════════════════════════════════════════════════");
   console.log(`Proxy wallet: ${PROXY_WALLET}`);
   console.log(`CTF Contract: ${CTF_CONTRACT_ADDRESS}`);
+  console.log(`Log file: ${REDEEMED_LOG_PATH}`);
 
   const allPositions = await loadPositions(PROXY_WALLET);
   if (allPositions.length === 0) {
@@ -141,6 +174,9 @@ export async function runRedeem(): Promise<void> {
     console.log(`Condition ${conditionIndex}/${positionsByCondition.size}: ${conditionId}`);
     console.log(`  Positions: ${positions.length} | Expected value: $${totalValue.toFixed(2)}`);
 
+    let txHash: string | undefined;
+    let success = false;
+
     try {
       const redeemTx = createRedeemTx(conditionId);
       const response = await client.execute([redeemTx], `Redeem condition ${conditionId}`);
@@ -150,12 +186,15 @@ export async function runRedeem(): Promise<void> {
           console.log(`  ❌ Tx reverted`);
           failCount++;
         } else {
-          console.log(`  ✅ Redeemed. Tx: ${result?.transactionHash ?? "unknown"}`);
+          txHash = result?.transactionHash;
+          console.log(`  ✅ Redeemed. Tx: ${txHash ?? "unknown"}`);
           successCount++;
+          success = true;
         }
       } else {
         console.log(`  ✅ Submitted`);
         successCount++;
+        success = true;
       }
     } catch (error: unknown) {
       const msg = error instanceof Error ? error.message : String(error);
@@ -164,10 +203,28 @@ export async function runRedeem(): Promise<void> {
       if (alreadyKnown) {
         console.log(`  ✅ Already submitted (ok)`);
         successCount++;
+        success = true;
       } else {
         console.log(`  ❌ Error: ${msg}`);
         failCount++;
       }
+    }
+
+    if (success) {
+      const redeemedAt = new Date().toISOString();
+      const entries: RedeemedEntry[] = positions.map((pos) => ({
+        conditionId,
+        title: pos.title,
+        slug: pos.slug,
+        outcome: pos.outcome,
+        asset: pos.asset,
+        size: pos.size,
+        value: pos.currentValue,
+        redeemedAt,
+        txHash,
+      }));
+      appendRedeemedToFile(entries);
+      console.log(`  📁 Đã ghi ${entries.length} position vào ${REDEEMED_LOG_PATH}`);
     }
 
     if (conditionIndex < positionsByCondition.size) {
