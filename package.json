@@ -18,7 +18,8 @@
     "test": "tsx src/test.ts",
     "run-old-5m": "tsx src/old-5m.ts",
     "settle-paid": "tsx src/settle-paid-orders.ts",
-    "redeem-in-contract": "tsx src/redeemInContract.ts"
+    "redeem-in-contract": "tsx src/redeemInContract.ts",
+    "redeem": "tsx src/redeem.ts"
   },
   "keywords": [],
   "author": "",

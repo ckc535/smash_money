@@ -26158,5 +26158,3735 @@
     "totalUsdcSize": 22.0696,
     "asset": "101037832324358130570187757015382006363688807949725013708061312578916355639312",
     "paidAt": "2026-02-25T11:25:14.217Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 55.331371,
+    "totalUsdcSize": 27.112372,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:26:37.531Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 2,
+    "totalUsdcSize": 0.98,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:27:13.592Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 37,
+    "totalUsdcSize": 18.13,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:27:25.718Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 19.607842,
+    "totalUsdcSize": 9.607843,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:27:49.622Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 15,
+    "totalUsdcSize": 7.35,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:29:01.855Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 234.11,
+    "totalUsdcSize": 117.055,
+    "asset": "81424480134098434591668655233519269967783090971496623389156447447120023853737",
+    "paidAt": "2026-02-25T11:29:13.953Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 10,
+    "totalUsdcSize": 5,
+    "asset": "81424480134098434591668655233519269967783090971496623389156447447120023853737",
+    "paidAt": "2026-02-25T11:29:25.815Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 19.89,
+    "totalUsdcSize": 9.945,
+    "asset": "81424480134098434591668655233519269967783090971496623389156447447120023853737",
+    "paidAt": "2026-02-25T11:29:37.941Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa1892c35de53d318817fb7e7d7a6b451bd9d6c36c589ed0f5add73e8a696d0c2",
+    "totalSize": 169,
+    "totalUsdcSize": 81.12,
+    "asset": "110316540849479597866930745483773476281150951472397268640428673057846494284164",
+    "paidAt": "2026-02-25T11:29:50.194Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019000",
+    "title": "Bitcoin Up or Down - February 25, 6:30AM-6:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa9fbfe382d0551e3a19db72f216f2691fc99c6ba6d95aa8e37cd3f52e3370c7c",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "61863282558012845442407249505790732333804423409986695856087588590512341320378",
+    "paidAt": "2026-02-25T11:30:02.251Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019300",
+    "title": "Bitcoin Up or Down - February 25, 6:35AM-6:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x210d5884bf774c11776128c25dd094fe3d1793c3c991e94b1034655b3d7a858b",
+    "totalSize": 99.969225,
+    "totalUsdcSize": 47.985229000000004,
+    "asset": "14132323361529250460392833861688743833544749428535420214856002078507030342425",
+    "paidAt": "2026-02-25T11:34:51.063Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019300",
+    "title": "Bitcoin Up or Down - February 25, 6:35AM-6:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x210d5884bf774c11776128c25dd094fe3d1793c3c991e94b1034655b3d7a858b",
+    "totalSize": 35.313331,
+    "totalUsdcSize": 17.303532999999998,
+    "asset": "111258132844553582680671051517628205188219357651922216598817721458937966757187",
+    "paidAt": "2026-02-25T11:35:02.934Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019300",
+    "title": "Bitcoin Up or Down - February 25, 6:35AM-6:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x210d5884bf774c11776128c25dd094fe3d1793c3c991e94b1034655b3d7a858b",
+    "totalSize": 35.686271,
+    "totalUsdcSize": 17.486273,
+    "asset": "111258132844553582680671051517628205188219357651922216598817721458937966757187",
+    "paidAt": "2026-02-25T11:35:15.101Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-7:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6e0896c263c5943cf322157c8bfab75e97114c7c7e50b33537fb135c1734d87",
+    "totalSize": 22.8004,
+    "totalUsdcSize": 10.944192,
+    "asset": "47951046860643179852087496596151614640551994106986016022206039613577107045398",
+    "paidAt": "2026-02-25T11:38:03.405Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 199.997842,
+    "totalUsdcSize": 97.998943,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:15.556Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 223.069431,
+    "totalUsdcSize": 104.842633,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:27.328Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 300,
+    "totalUsdcSize": 144,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:27.988Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 2.15111,
+    "totalUsdcSize": 0.989511,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:39.342Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 76.92,
+    "totalUsdcSize": 36.1524,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:39.884Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 30.2029,
+    "totalUsdcSize": 16.218,
+    "asset": "1170793162449260554380959914555208719118567181697004276433576343783843850732",
+    "paidAt": "2026-02-25T11:39:51.418Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 111.846846,
+    "totalUsdcSize": 51.44955,
+    "asset": "31594514707145670594181927255644002263657944088856860340678289766535168317832",
+    "paidAt": "2026-02-25T11:39:52.391Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019600",
+    "title": "Bitcoin Up or Down - February 25, 6:40AM-6:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x4d6f707bc190184b90bdbc5f6e0680464802c8cb24c792048273a2cb66377041",
+    "totalSize": 98.861057,
+    "totalUsdcSize": 52.396362,
+    "asset": "1170793162449260554380959914555208719118567181697004276433576343783843850732",
+    "paidAt": "2026-02-25T11:40:04.288Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-7:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6e0896c263c5943cf322157c8bfab75e97114c7c7e50b33537fb135c1734d87",
+    "totalSize": 181.125184,
+    "totalUsdcSize": 83.31758500000001,
+    "asset": "47951046860643179852087496596151614640551994106986016022206039613577107045398",
+    "paidAt": "2026-02-25T11:43:52.150Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-7:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6e0896c263c5943cf322157c8bfab75e97114c7c7e50b33537fb135c1734d87",
+    "totalSize": 2,
+    "totalUsdcSize": 0.92,
+    "asset": "47951046860643179852087496596151614640551994106986016022206039613577107045398",
+    "paidAt": "2026-02-25T11:44:16.182Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-7:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6e0896c263c5943cf322157c8bfab75e97114c7c7e50b33537fb135c1734d87",
+    "totalSize": 4.481479,
+    "totalUsdcSize": 2.061481,
+    "asset": "47951046860643179852087496596151614640551994106986016022206039613577107045398",
+    "paidAt": "2026-02-25T11:44:40.292Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 135,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:04.402Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 138,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:05.081Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 100,
+    "totalUsdcSize": 47,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:05.739Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 38.095516,
+    "totalUsdcSize": 16.000117,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:06.532Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 129,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:07.115Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 132,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:07.623Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 29.963075,
+    "totalUsdcSize": 14.382276,
+    "asset": "3634132039927685337754692141691072508821773247709818091210374903101636270102",
+    "paidAt": "2026-02-25T11:45:08.715Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 100,
+    "totalUsdcSize": 48,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T11:45:09.221Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-7:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6e0896c263c5943cf322157c8bfab75e97114c7c7e50b33537fb135c1734d87",
+    "totalSize": 1.85185,
+    "totalUsdcSize": 0.851851,
+    "asset": "47951046860643179852087496596151614640551994106986016022206039613577107045398",
+    "paidAt": "2026-02-25T11:45:10.378Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 21.044037,
+    "totalUsdcSize": 10.101138,
+    "asset": "49501548756989805187760701228457215577346926477208589637573702128188653447452",
+    "paidAt": "2026-02-25T11:58:30.549Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0xb3e2add8d7f1db8bee2387000335d48eef970d9e0a187fb304d8c5a99d5f2693",
+    "totalSize": 104,
+    "totalUsdcSize": 52,
+    "asset": "44136018786698846673200440460245908176779574319839029699035004620618222153228",
+    "paidAt": "2026-02-25T11:58:42.699Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb3e2add8d7f1db8bee2387000335d48eef970d9e0a187fb304d8c5a99d5f2693",
+    "totalSize": 98.4375,
+    "totalUsdcSize": 50,
+    "asset": "99825972492271305103129656212672102886470163662065153364763397027093199642920",
+    "paidAt": "2026-02-25T11:58:54.896Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 58.174116,
+    "totalUsdcSize": 28.505317,
+    "asset": "81177950883353467666634811358920232538477369779924719282702616007928142692256",
+    "paidAt": "2026-02-25T11:59:18.716Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 121,
+    "totalUsdcSize": 60.5,
+    "asset": "81177950883353467666634811358920232538477369779924719282702616007928142692256",
+    "paidAt": "2026-02-25T11:59:19.355Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 7.860768,
+    "totalUsdcSize": 3.773169,
+    "asset": "49501548756989805187760701228457215577346926477208589637573702128188653447452",
+    "paidAt": "2026-02-25T11:59:43.236Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 92.13,
+    "totalUsdcSize": 44.2224,
+    "asset": "49501548756989805187760701228457215577346926477208589637573702128188653447452",
+    "paidAt": "2026-02-25T11:59:55.034Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772020800",
+    "title": "Bitcoin Up or Down - February 25, 7:00AM-7:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xfa977989f1d4165e81c3e68d98681d6801d9298250f746d41b2c677f8a1ab225",
+    "totalSize": 100,
+    "totalUsdcSize": 47,
+    "asset": "49501548756989805187760701228457215577346926477208589637573702128188653447452",
+    "paidAt": "2026-02-25T12:00:07.346Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772021100",
+    "title": "Bitcoin Up or Down - February 25, 7:05AM-7:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1726a3e4750d68e3609294ec9095e0810e828fcfc8b3ad9a70718fef521c5f75",
+    "totalSize": 191.58332900000002,
+    "totalUsdcSize": 93.875832,
+    "asset": "71090318728349001158496278578700424922639598628819329418462595085174728645551",
+    "paidAt": "2026-02-25T12:04:43.653Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772021100",
+    "title": "Bitcoin Up or Down - February 25, 7:05AM-7:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1726a3e4750d68e3609294ec9095e0810e828fcfc8b3ad9a70718fef521c5f75",
+    "totalSize": 62.639214,
+    "totalUsdcSize": 30.693215,
+    "asset": "71090318728349001158496278578700424922639598628819329418462595085174728645551",
+    "paidAt": "2026-02-25T12:04:55.804Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772021700",
+    "title": "Bitcoin Up or Down - February 25, 7:15AM-7:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x576c4a31735c2b82cbe1930199c85bdb5ac089ddf6137cc35c032bd97fc2d58c",
+    "totalSize": 11.4,
+    "totalUsdcSize": 5.586,
+    "asset": "48125299401783123758079708905547402929662507754848179513288809687709951476739",
+    "paidAt": "2026-02-25T12:06:43.999Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772021700",
+    "title": "Bitcoin Up or Down - February 25, 7:15AM-7:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x576c4a31735c2b82cbe1930199c85bdb5ac089ddf6137cc35c032bd97fc2d58c",
+    "totalSize": 18.425184,
+    "totalUsdcSize": 8.475585,
+    "asset": "48125299401783123758079708905547402929662507754848179513288809687709951476739",
+    "paidAt": "2026-02-25T12:13:21.155Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772021700",
+    "title": "Bitcoin Up or Down - February 25, 7:15AM-7:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0x426df76e688a0b1a07fa7d03857c5a6396e37b40e59445c5d89fde16d566ba37",
+    "totalSize": 2.54,
+    "totalUsdcSize": 1.27,
+    "asset": "64303907027023142173319452180280055496988312481554572138108400188438965492894",
+    "paidAt": "2026-02-25T12:13:57.277Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772021700",
+    "title": "Bitcoin Up or Down - February 25, 7:15AM-7:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0x426df76e688a0b1a07fa7d03857c5a6396e37b40e59445c5d89fde16d566ba37",
+    "totalSize": 21.2,
+    "totalUsdcSize": 10.6,
+    "asset": "64303907027023142173319452180280055496988312481554572138108400188438965492894",
+    "paidAt": "2026-02-25T12:14:21.185Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772021700",
+    "title": "Bitcoin Up or Down - February 25, 7:15AM-7:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0x426df76e688a0b1a07fa7d03857c5a6396e37b40e59445c5d89fde16d566ba37",
+    "totalSize": 76.26,
+    "totalUsdcSize": 38.13,
+    "asset": "64303907027023142173319452180280055496988312481554572138108400188438965492894",
+    "paidAt": "2026-02-25T12:14:33.320Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 138,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T12:15:09.583Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 100,
+    "totalUsdcSize": 47,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T12:15:10.112Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 38.095516,
+    "totalUsdcSize": 16.000117,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T12:15:10.657Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 129,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T12:15:11.179Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772019900",
+    "title": "Bitcoin Up or Down - February 25, 6:45AM-6:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xa62de74eef7d1b591c1912a2505a27b62e657467a19d7b1aefde7fc6654d395e",
+    "totalSize": 300,
+    "totalUsdcSize": 132,
+    "asset": "57758883646418366088177983942499530672632295398903545935320695740892360510972",
+    "paidAt": "2026-02-25T12:15:11.697Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022000",
+    "title": "Bitcoin Up or Down - February 25, 7:20AM-7:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0xb0d1613bca9ca4a5d2edbc9cb461d8f250918fb1f82ba10038ebf7379604c07f",
+    "totalSize": 359.659404,
+    "totalUsdcSize": 176.233109,
+    "asset": "13721187130767179895182051762885297946837557710292179853367811413028271659955",
+    "paidAt": "2026-02-25T12:19:34.813Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022000",
+    "title": "Bitcoin Up or Down - February 25, 7:20AM-7:25AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0d1613bca9ca4a5d2edbc9cb461d8f250918fb1f82ba10038ebf7379604c07f",
+    "totalSize": 99.2975,
+    "totalUsdcSize": 51,
+    "asset": "66091199304463617918289559819047357976731500538927998521156274906732185796500",
+    "paidAt": "2026-02-25T12:19:46.241Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022000",
+    "title": "Bitcoin Up or Down - February 25, 7:20AM-7:25AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0d1613bca9ca4a5d2edbc9cb461d8f250918fb1f82ba10038ebf7379604c07f",
+    "totalSize": 27.7598,
+    "totalUsdcSize": 14.382,
+    "asset": "66091199304463617918289559819047357976731500538927998521156274906732185796500",
+    "paidAt": "2026-02-25T12:20:00.840Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022000",
+    "title": "Bitcoin Up or Down - February 25, 7:20AM-7:25AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0d1613bca9ca4a5d2edbc9cb461d8f250918fb1f82ba10038ebf7379604c07f",
+    "totalSize": 57.60637499999999,
+    "totalUsdcSize": 30.531380000000002,
+    "asset": "66091199304463617918289559819047357976731500538927998521156274906732185796500",
+    "paidAt": "2026-02-25T12:20:12.313Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 2.689165,
+    "totalUsdcSize": 1.398366,
+    "asset": "61186800472026310947597726040092662111947311499656939342290321011037984834713",
+    "paidAt": "2026-02-25T12:20:22.299Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 20,
+    "totalUsdcSize": 10.4,
+    "asset": "61186800472026310947597726040092662111947311499656939342290321011037984834713",
+    "paidAt": "2026-02-25T12:20:58.293Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022300",
+    "title": "Bitcoin Up or Down - February 25, 7:25AM-7:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5e7187db825474a29da6a52fae3f7894353745daac67408683a7a8fcb6bf427c",
+    "totalSize": 3,
+    "totalUsdcSize": 1.5,
+    "asset": "48047958360310618485484554268034419584233402935401160903317063826125894996956",
+    "paidAt": "2026-02-25T12:22:10.762Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022300",
+    "title": "Bitcoin Up or Down - February 25, 7:25AM-7:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5e7187db825474a29da6a52fae3f7894353745daac67408683a7a8fcb6bf427c",
+    "totalSize": 2,
+    "totalUsdcSize": 1,
+    "asset": "48047958360310618485484554268034419584233402935401160903317063826125894996956",
+    "paidAt": "2026-02-25T12:22:22.503Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022300",
+    "title": "Bitcoin Up or Down - February 25, 7:25AM-7:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5e7187db825474a29da6a52fae3f7894353745daac67408683a7a8fcb6bf427c",
+    "totalSize": 80.046166,
+    "totalUsdcSize": 42.424469,
+    "asset": "48047958360310618485484554268034419584233402935401160903317063826125894996956",
+    "paidAt": "2026-02-25T12:24:47.201Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772022300",
+    "title": "Bitcoin Up or Down - February 25, 7:25AM-7:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5e7187db825474a29da6a52fae3f7894353745daac67408683a7a8fcb6bf427c",
+    "totalSize": 14.94,
+    "totalUsdcSize": 7.9182,
+    "asset": "48047958360310618485484554268034419584233402935401160903317063826125894996956",
+    "paidAt": "2026-02-25T12:24:58.920Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 17.071427,
+    "totalUsdcSize": 7.511428,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:25:23.153Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 5.3,
+    "totalUsdcSize": 2.332,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:27:23.529Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 12.725712999999999,
+    "totalUsdcSize": 5.599314,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:27:35.539Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 40,
+    "totalUsdcSize": 17.6,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:28:11.478Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 53.885453,
+    "totalUsdcSize": 24.248454,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:28:47.728Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 100,
+    "totalUsdcSize": 44,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:28:48.360Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 40.11,
+    "totalUsdcSize": 18.0495,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:28:59.639Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772022600",
+    "title": "Bitcoin Up or Down - February 25, 7:30AM-7:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x754f2c43e8e1dee3e86c40e080e9be67beb9084104e593a3f26df5381bbdc495",
+    "totalSize": 39.98125,
+    "totalUsdcSize": 17.59175,
+    "asset": "83650709318375104224398803256073761419989193545692365717439076176435829759671",
+    "paidAt": "2026-02-25T12:29:00.147Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024400",
+    "title": "Bitcoin Up or Down - February 25, 8:00AM-8:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd6605a008e2f466fdc1d626faebc7d27de0e980c37de1799cc9ffa7ba027eff3",
+    "totalSize": 55.038819000000004,
+    "totalUsdcSize": 26.969022000000002,
+    "asset": "38780870383350341038635226787536404418255462361049418211675071970825341114529",
+    "paidAt": "2026-02-25T13:03:42.469Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772024400",
+    "title": "Bitcoin Up or Down - February 25, 8:00AM-8:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xee799758566ff9da471d7b0b2cfbbba12445e934a3db126a7a5b81a19d5b3f7c",
+    "totalSize": 94.031743,
+    "totalUsdcSize": 34.791745,
+    "asset": "50056937125128735500997481196339610392002914413314574816919809006668478191468",
+    "paidAt": "2026-02-25T13:03:43.525Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 97.2,
+    "totalUsdcSize": 48.6,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:03:54.715Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 18,
+    "totalUsdcSize": 9,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:03:58.199Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 2,
+    "totalUsdcSize": 1,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:04:09.893Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 12.18,
+    "totalUsdcSize": 6.09,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:04:21.830Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 15.646664000000001,
+    "totalUsdcSize": 8.136266,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:04:45.828Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772024700",
+    "title": "Bitcoin Up or Down - February 25, 8:05AM-8:10AM ET",
+    "outcome": "Down",
+    "conditionId": "0xccdaf5031358d75ed642fff3194a9b030b52ce34ff26308b0ca5c20194c61187",
+    "totalSize": 44.34,
+    "totalUsdcSize": 23.056800000000003,
+    "asset": "78215974711476483809139648224444696990447281431206198758549472457448401038570",
+    "paidAt": "2026-02-25T13:04:58.252Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 14.993726,
+    "totalUsdcSize": 6.147428,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:07:46.377Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 406.92,
+    "totalUsdcSize": 203.46,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:07:58.423Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 11.734689,
+    "totalUsdcSize": 5.984692,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:08:10.527Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 10,
+    "totalUsdcSize": 4.1,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:08:11.378Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 2.040815,
+    "totalUsdcSize": 1.040816,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:08:46.835Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 166.9938,
+    "totalUsdcSize": 83.4969,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:08:58.688Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 78.95,
+    "totalUsdcSize": 40.2645,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:08:59.309Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025000",
+    "title": "Bitcoin Up or Down - February 25, 8:10AM-8:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x9b67fc68826e51085af8edddc797545c97d5082938c39bc8f47901a185f227a1",
+    "totalSize": 2,
+    "totalUsdcSize": 1,
+    "asset": "64210693280563149069070881927912630929315775682029889755696715049407651897305",
+    "paidAt": "2026-02-25T13:09:10.658Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 1.724135,
+    "totalUsdcSize": 0.724137,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:09:58.678Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 96.5282,
+    "totalUsdcSize": 42.14,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:11:35.308Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 800,
+    "totalUsdcSize": 328,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:35.131Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 400,
+    "totalUsdcSize": 160,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:35.716Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 242.622948,
+    "totalUsdcSize": 94.62295,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:36.287Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 200,
+    "totalUsdcSize": 86,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:37.100Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 200,
+    "totalUsdcSize": 84,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:37.882Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 157.37,
+    "totalUsdcSize": 61.3743,
+    "asset": "81645801917691954613625091374739278819703985318226234033357092683541490194490",
+    "paidAt": "2026-02-25T13:12:47.262Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5eff3001e1dbb3d8c414fcb35f9e35ad1a9fbe8311c1dc1b95dd99001d6c726c",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "79252134702139918341145180494972731218665663201805317103753707006266596417471",
+    "paidAt": "2026-02-25T13:14:23.331Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772025300",
+    "title": "Bitcoin Up or Down - February 25, 8:15AM-8:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x533dd212bc07b299e300854c52efe02c3b6e85bd26e63704dc3e6146a5d56559",
+    "totalSize": 462.55,
+    "totalUsdcSize": 254.4025,
+    "asset": "78048952644836992035234550367276909985504001151601327783353865762018546471792",
+    "paidAt": "2026-02-25T13:15:14.654Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 8.25,
+    "totalUsdcSize": 4.29,
+    "asset": "9075234616190991316414229685725577214374326597650216002559855317230268857969",
+    "paidAt": "2026-02-25T13:15:47.600Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 295.260092,
+    "totalUsdcSize": 153.535248,
+    "asset": "9075234616190991316414229685725577214374326597650216002559855317230268857969",
+    "paidAt": "2026-02-25T13:17:11.820Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 17.95,
+    "totalUsdcSize": 9.334,
+    "asset": "9075234616190991316414229685725577214374326597650216002559855317230268857969",
+    "paidAt": "2026-02-25T13:18:48.227Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 2,
+    "totalUsdcSize": 1.04,
+    "asset": "9075234616190991316414229685725577214374326597650216002559855317230268857969",
+    "paidAt": "2026-02-25T13:19:36.261Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025600",
+    "title": "Bitcoin Up or Down - February 25, 8:20AM-8:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x9c74e63b0ebb6a9d135242368751fcdc3161ff32d2fa5b2e831fe79b3161e09f",
+    "totalSize": 100,
+    "totalUsdcSize": 48,
+    "asset": "4561684290520339876698026021940528970448701394987530391713069384060544742189",
+    "paidAt": "2026-02-25T13:20:00.445Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025900",
+    "title": "Bitcoin Up or Down - February 25, 8:25AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd79f1435ec48431382ff2ef1260a80efe5e5322a7fdbb7352e1ce4f60460a5b8",
+    "totalSize": 29.32,
+    "totalUsdcSize": 14.66,
+    "asset": "19704890312261819874470030749328157491189527194409283476536704232470582560401",
+    "paidAt": "2026-02-25T13:25:01.236Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772025900",
+    "title": "Bitcoin Up or Down - February 25, 8:25AM-8:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd79f1435ec48431382ff2ef1260a80efe5e5322a7fdbb7352e1ce4f60460a5b8",
+    "totalSize": 11,
+    "totalUsdcSize": 5.5,
+    "asset": "19704890312261819874470030749328157491189527194409283476536704232470582560401",
+    "paidAt": "2026-02-25T13:25:15.713Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:27:25.517Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 100,
+    "totalUsdcSize": 42,
+    "asset": "19845937365177304382383444692090592438244146964049042614138767327284432514292",
+    "paidAt": "2026-02-25T13:27:26.409Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 185.690507,
+    "totalUsdcSize": 76.133108,
+    "asset": "19845937365177304382383444692090592438244146964049042614138767327284432514292",
+    "paidAt": "2026-02-25T13:27:26.992Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 100,
+    "totalUsdcSize": 49,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:28:01.642Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 346.87719,
+    "totalUsdcSize": 149.157192,
+    "asset": "19845937365177304382383444692090592438244146964049042614138767327284432514292",
+    "paidAt": "2026-02-25T13:28:13.575Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 92.141815,
+    "totalUsdcSize": 47.721116,
+    "asset": "71514159366075929578896824073592398364704909654934541084880418857070368038803",
+    "paidAt": "2026-02-25T13:29:01.787Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 13.909088,
+    "totalUsdcSize": 7.78909,
+    "asset": "9075234616190991316414229685725577214374326597650216002559855317230268857969",
+    "paidAt": "2026-02-25T13:29:02.760Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 13.12,
+    "totalUsdcSize": 6.2976,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:03.664Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 285.074614,
+    "totalUsdcSize": 136.835815,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:13.907Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 2.040815,
+    "totalUsdcSize": 1.040816,
+    "asset": "71514159366075929578896824073592398364704909654934541084880418857070368038803",
+    "paidAt": "2026-02-25T13:29:14.728Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 75.673074,
+    "totalUsdcSize": 36.323076,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:26.948Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 33.076921999999996,
+    "totalUsdcSize": 15.876923,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:37.838Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 2.027923,
+    "totalUsdcSize": 0.953124,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:49.798Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 20,
+    "totalUsdcSize": 9.6,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:29:50.565Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 253.316204,
+    "totalUsdcSize": 106.392806,
+    "asset": "19845937365177304382383444692090592438244146964049042614138767327284432514292",
+    "paidAt": "2026-02-25T13:29:51.428Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 34,
+    "totalUsdcSize": 17,
+    "asset": "71514159366075929578896824073592398364704909654934541084880418857070368038803",
+    "paidAt": "2026-02-25T13:30:02.124Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd52e6e5ea31432bc211df980912b2a5360f0b526e0f195efd6caded0ad5891fb",
+    "totalSize": 227.32678399999998,
+    "totalUsdcSize": 106.84358999999999,
+    "asset": "60956342628246141976434506509548490541415969244381000714579310039569940466781",
+    "paidAt": "2026-02-25T13:30:03.871Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772026200",
+    "title": "Bitcoin Up or Down - February 25, 8:30AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc8f400689a7bf1196561dc8fbaea5e30e62fbd7e90f402eedf53e1c16bc151fe",
+    "totalSize": 1.89655,
+    "totalUsdcSize": 0.796551,
+    "asset": "19845937365177304382383444692090592438244146964049042614138767327284432514292",
+    "paidAt": "2026-02-25T13:30:14.316Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 6.160075,
+    "totalUsdcSize": 3.203239,
+    "asset": "112590961553836914703782246293968911936158745180728344897171885855039363169054",
+    "paidAt": "2026-02-25T13:30:25.911Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 14,
+    "totalUsdcSize": 7.28,
+    "asset": "112590961553836914703782246293968911936158745180728344897171885855039363169054",
+    "paidAt": "2026-02-25T13:30:37.999Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 41.666665,
+    "totalUsdcSize": 21.666666,
+    "asset": "112590961553836914703782246293968911936158745180728344897171885855039363169054",
+    "paidAt": "2026-02-25T13:30:49.959Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 8,
+    "totalUsdcSize": 4.16,
+    "asset": "112590961553836914703782246293968911936158745180728344897171885855039363169054",
+    "paidAt": "2026-02-25T13:31:50.151Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026500",
+    "title": "Bitcoin Up or Down - February 25, 8:35AM-8:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x679e387509f1d15e160c7dc86171a14a136eeca50bceca75d20d92f579c59f17",
+    "totalSize": 66.096466,
+    "totalUsdcSize": 32.38727,
+    "asset": "106731412858165095426228284075185103795290108609141783326735172348317667540865",
+    "paidAt": "2026-02-25T13:34:51.071Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026500",
+    "title": "Bitcoin Up or Down - February 25, 8:35AM-8:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x679e387509f1d15e160c7dc86171a14a136eeca50bceca75d20d92f579c59f17",
+    "totalSize": 110.94117200000001,
+    "totalUsdcSize": 54.361174999999996,
+    "asset": "106731412858165095426228284075185103795290108609141783326735172348317667540865",
+    "paidAt": "2026-02-25T13:35:03.758Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026500",
+    "title": "Bitcoin Up or Down - February 25, 8:35AM-8:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x679e387509f1d15e160c7dc86171a14a136eeca50bceca75d20d92f579c59f17",
+    "totalSize": 22.93,
+    "totalUsdcSize": 11.2357,
+    "asset": "106731412858165095426228284075185103795290108609141783326735172348317667540865",
+    "paidAt": "2026-02-25T13:35:14.609Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 30,
+    "totalUsdcSize": 16.2,
+    "asset": "112590961553836914703782246293968911936158745180728344897171885855039363169054",
+    "paidAt": "2026-02-25T13:37:15.116Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 41.666665,
+    "totalUsdcSize": 21.666666,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:38:03.138Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 41,
+    "totalUsdcSize": 18.04,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:38:51.171Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 100,
+    "totalUsdcSize": 43,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:38:51.737Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 100,
+    "totalUsdcSize": 42,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:39:03.278Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 51.726084,
+    "totalUsdcSize": 27.932085999999998,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:39:04.285Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 24,
+    "totalUsdcSize": 13.2,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:39:15.677Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 22.83152,
+    "totalUsdcSize": 12.329021,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:39:16.208Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 42.01478,
+    "totalUsdcSize": 22.687981999999998,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:39:27.519Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 57.4,
+    "totalUsdcSize": 30.996,
+    "asset": "99393039339463636770252627201981111730537936795542350412549445833046264555619",
+    "paidAt": "2026-02-25T13:39:39.554Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 4.631576,
+    "totalUsdcSize": 1.991578,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:39:40.506Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 99,
+    "totalUsdcSize": 41.58,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:39:41.154Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 170.039829,
+    "totalUsdcSize": 69.71633,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:39:51.457Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 11.38,
+    "totalUsdcSize": 4.7796,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:39:52.221Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 30.129151,
+    "totalUsdcSize": 12.352952,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:40:03.752Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772026800",
+    "title": "Bitcoin Up or Down - February 25, 8:40AM-8:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x095c1240e5636e2c982f6b427216c2d4cb6c754547dd09c43759c301d5656056",
+    "totalSize": 8.394306,
+    "totalUsdcSize": 3.525609,
+    "asset": "13393312029587890172685807315792381672450131640595011572897439839797686795201",
+    "paidAt": "2026-02-25T13:40:04.974Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 99,
+    "totalUsdcSize": 42.57,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:40:39.831Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 10,
+    "totalUsdcSize": 5,
+    "asset": "24233999569579130945964551982690206789625730099452109727372685816640786323557",
+    "paidAt": "2026-02-25T13:42:40.228Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 13,
+    "totalUsdcSize": 6.5,
+    "asset": "51862790976067230587512374137413089059047122309250095113920371699233730117884",
+    "paidAt": "2026-02-25T13:42:52.642Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 205,
+    "totalUsdcSize": 79.95,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:43:03.895Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 99.7657,
+    "totalUsdcSize": 50,
+    "asset": "24233999569579130945964551982690206789625730099452109727372685816640786323557",
+    "paidAt": "2026-02-25T13:43:04.863Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 200,
+    "totalUsdcSize": 80,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:43:05.518Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 6.779658,
+    "totalUsdcSize": 2.77966,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:43:52.144Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 98.4575,
+    "totalUsdcSize": 46,
+    "asset": "51862790976067230587512374137413089059047122309250095113920371699233730117884",
+    "paidAt": "2026-02-25T13:44:28.380Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 127.033895,
+    "totalUsdcSize": 52.083898000000005,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:44:29.277Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 96.4883,
+    "totalUsdcSize": 45.08,
+    "asset": "51862790976067230587512374137413089059047122309250095113920371699233730117884",
+    "paidAt": "2026-02-25T13:44:40.340Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 20.338982,
+    "totalUsdcSize": 8.338983,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:44:41.196Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 66.13,
+    "totalUsdcSize": 29.7585,
+    "asset": "51862790976067230587512374137413089059047122309250095113920371699233730117884",
+    "paidAt": "2026-02-25T13:44:55.221Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-8:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc45ff0a2f160beb3e6fc216d1867f9d3d6a75eab9c49ce8d6a07434646729c48",
+    "totalSize": 20,
+    "totalUsdcSize": 8.4,
+    "asset": "51862790976067230587512374137413089059047122309250095113920371699233730117884",
+    "paidAt": "2026-02-25T13:45:04.956Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772027100",
+    "title": "Bitcoin Up or Down - February 25, 8:45AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5550566fba7a77aa184490c12491b978a8ddf1a4f31c98f88c2bda093a67a0d5",
+    "totalSize": 7.932199000000001,
+    "totalUsdcSize": 3.2522019999999996,
+    "asset": "8035192983433003787141206853626243366730102564854368649772888634129862893149",
+    "paidAt": "2026-02-25T13:45:06.138Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 14,
+    "totalUsdcSize": 7.28,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:45:40.334Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 15.346937,
+    "totalUsdcSize": 7.826938,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:46:16.340Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 386,
+    "totalUsdcSize": 200.72,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:46:17.200Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 99.992977,
+    "totalUsdcSize": 52.996278000000004,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:48:28.916Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 24.074073,
+    "totalUsdcSize": 11.074074,
+    "asset": "31917047065638997099476241185080674455779883944222286482332143959168553963156",
+    "paidAt": "2026-02-25T13:48:53.183Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 99,
+    "totalUsdcSize": 43.56,
+    "asset": "31917047065638997099476241185080674455779883944222286482332143959168553963156",
+    "paidAt": "2026-02-25T13:48:53.719Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 1075.884803,
+    "totalUsdcSize": 494.907011,
+    "asset": "31917047065638997099476241185080674455779883944222286482332143959168553963156",
+    "paidAt": "2026-02-25T13:49:05.604Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 373.51111000000003,
+    "totalUsdcSize": 205.431111,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:49:16.884Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 23.91,
+    "totalUsdcSize": 12.9114,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:49:17.389Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 37.222221000000005,
+    "totalUsdcSize": 20.472222000000002,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:49:29.039Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 28.888886,
+    "totalUsdcSize": 15.888888000000001,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:49:40.976Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 550.818179,
+    "totalUsdcSize": 308.458181,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:49:53.574Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 292.81427499999995,
+    "totalUsdcSize": 128.83828300000002,
+    "asset": "31917047065638997099476241185080674455779883944222286482332143959168553963156",
+    "paidAt": "2026-02-25T13:50:07.937Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 98.4693,
+    "totalUsdcSize": 44.95,
+    "asset": "31917047065638997099476241185080674455779883944222286482332143959168553963156",
+    "paidAt": "2026-02-25T13:50:11.651Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027400",
+    "title": "Bitcoin Up or Down - February 25, 8:50AM-8:55AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc670773c7ef1eeb8bccbe80b90a2b5de04e2129ffbc7ea08c2badabc53c0df5d",
+    "totalSize": 38.125,
+    "totalUsdcSize": 21.35,
+    "asset": "37859059439145240164276553598189430137971578617599901499494461487753438512205",
+    "paidAt": "2026-02-25T13:50:16.692Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 315,
+    "totalUsdcSize": 132.3,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:50:53.049Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 200,
+    "totalUsdcSize": 82,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:50:53.574Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 195.69792999999999,
+    "totalUsdcSize": 82.19313100000001,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:51:53.269Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 3.448273,
+    "totalUsdcSize": 1.448275,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:52:05.330Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 1.67,
+    "totalUsdcSize": 0.7014,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:52:29.413Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 97.5132,
+    "totalUsdcSize": 42.57,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:52:54.083Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 1.960783,
+    "totalUsdcSize": 0.960784,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:53:41.518Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 78.43136899999999,
+    "totalUsdcSize": 38.431371,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:53:53.656Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 19.59,
+    "totalUsdcSize": 9.5991,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:54:05.717Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 21.949088,
+    "totalUsdcSize": 9.87709,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:54:06.571Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 9.09,
+    "totalUsdcSize": 4.0905,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:54:17.636Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 99,
+    "totalUsdcSize": 47.519999999999996,
+    "asset": "54777359731372301549146921284151942630511123553436857757740429827734716146597",
+    "paidAt": "2026-02-25T13:54:32.435Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 6.96,
+    "totalUsdcSize": 3.132,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:54:42.240Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 64.409431,
+    "totalUsdcSize": 30.272433,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:54:53.909Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 88.8,
+    "totalUsdcSize": 42.624,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:54:54.412Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 187,
+    "totalUsdcSize": 91.63,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:54:54.902Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 201.81818,
+    "totalUsdcSize": 90.818181,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:55:05.983Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 35.59,
+    "totalUsdcSize": 16.7273,
+    "asset": "8865197208730855859405418114909782350607875958713273147044289066387897470600",
+    "paidAt": "2026-02-25T13:55:07.572Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772027700",
+    "title": "Bitcoin Up or Down - February 25, 8:55AM-9:00AM ET",
+    "outcome": "Down",
+    "conditionId": "0xd31c21679c2242395bfe9230c55acca4157fdf79eceb279b2dfd53098431d580",
+    "totalSize": 100,
+    "totalUsdcSize": 46,
+    "asset": "54777359731372301549146921284151942630511123553436857757740429827734716146597",
+    "paidAt": "2026-02-25T13:55:10.768Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 5.17,
+    "totalUsdcSize": 2.3265,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:55:53.994Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 10,
+    "totalUsdcSize": 5.2,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:57:18.152Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:57:30.133Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 20.833332,
+    "totalUsdcSize": 10.833333,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:57:30.927Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 421,
+    "totalUsdcSize": 218.92,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:58:18.280Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 46.074073,
+    "totalUsdcSize": 21.194074,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:58:30.283Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 100,
+    "totalUsdcSize": 51,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:58:31.165Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 39.215685,
+    "totalUsdcSize": 19.215686,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:58:42.369Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 9.433961,
+    "totalUsdcSize": 4.433962,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T13:58:43.242Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 26.7,
+    "totalUsdcSize": 13.617,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:58:54.345Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 29.292447000000003,
+    "totalUsdcSize": 14.939148000000001,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:59:06.466Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 1.960783,
+    "totalUsdcSize": 0.960784,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:59:07.222Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 19.607842,
+    "totalUsdcSize": 9.607843,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:59:18.396Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 206.84921400000002,
+    "totalUsdcSize": 101.356115,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:59:30.407Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 91,
+    "totalUsdcSize": 45.5,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:59:31.467Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 100,
+    "totalUsdcSize": 49,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:59:54.518Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 200,
+    "totalUsdcSize": 100,
+    "asset": "106562533218187046570842188222181947288991580871720677618027029788632876878434",
+    "paidAt": "2026-02-25T13:59:55.029Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x837fada0bf9948c9daa180df009fc3c93f4e334aa95c0c1727566f60f708ff0f",
+    "totalSize": 40.996273,
+    "totalUsdcSize": 20.088174000000002,
+    "asset": "37447341880261141809074308776579481153314948014137001559889619546176003114175",
+    "paidAt": "2026-02-25T13:59:55.958Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028000",
+    "title": "Bitcoin Up or Down - February 25, 9:00AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x898a2dcb1d7a1d1315ae46d9d6986a370631513b2bee6cb02d305e1647fb5250",
+    "totalSize": 98.99372200000002,
+    "totalUsdcSize": 48.50692400000001,
+    "asset": "56763577597844435583870503459583383026033306350053288958618988449570314902692",
+    "paidAt": "2026-02-25T14:00:10.627Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 0.88,
+    "totalUsdcSize": 0.4488,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:03:55.295Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 5,
+    "totalUsdcSize": 2.55,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:04:06.894Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 5,
+    "totalUsdcSize": 2.55,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:04:55.225Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 40.816325,
+    "totalUsdcSize": 20.816326,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:05:43.301Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 5,
+    "totalUsdcSize": 2.55,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:06:43.626Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 37.412243,
+    "totalUsdcSize": 19.080244,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:06:55.532Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 24.89,
+    "totalUsdcSize": 12.445,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:07:31.731Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 99.11,
+    "totalUsdcSize": 49.555,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:07:43.762Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 76,
+    "totalUsdcSize": 37.24,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:09:20.221Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 48.743074,
+    "totalUsdcSize": 23.396676,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:09:31.897Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 251.23845999999998,
+    "totalUsdcSize": 120.594461,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:09:44.037Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 300,
+    "totalUsdcSize": 141,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:09:56.077Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 151,
+    "totalUsdcSize": 72.48,
+    "asset": "105748309975945263542645822125506271825102086872208249146082511222277811866487",
+    "paidAt": "2026-02-25T14:09:56.673Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028600",
+    "title": "Bitcoin Up or Down - February 25, 9:10AM-9:15AM ET",
+    "outcome": "Down",
+    "conditionId": "0xf04580db668a783f3c983b980ca1ebeda47f950c5664d9d69812d96c2b99cc45",
+    "totalSize": 149.998162,
+    "totalUsdcSize": 76.499063,
+    "asset": "73588164259715034595787725283804993071117243300278789647986524958680872473249",
+    "paidAt": "2026-02-25T14:10:11.571Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 46.714309,
+    "totalUsdcSize": 19.62001,
+    "asset": "59127009272812064912946125518069537904023529310092943415137386432672823383135",
+    "paidAt": "2026-02-25T14:13:08.575Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 62.058821,
+    "totalUsdcSize": 30.408823,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:13:20.650Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 10,
+    "totalUsdcSize": 4.9,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:13:32.524Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 3,
+    "totalUsdcSize": 1.47,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:13:44.620Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 52,
+    "totalUsdcSize": 28.08,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:13:45.466Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 110.638295,
+    "totalUsdcSize": 58.638297,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:13:56.725Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 44.3,
+    "totalUsdcSize": 21.707,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:13:57.938Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 52,
+    "totalUsdcSize": 28.08,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:13:58.463Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 15.537707,
+    "totalUsdcSize": 8.079608,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:13:59.029Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 79.7,
+    "totalUsdcSize": 39.053,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:14:20.793Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 147.26057400000002,
+    "totalUsdcSize": 70.685076,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:14:44.845Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 152.72076800000002,
+    "totalUsdcSize": 73.30596899999999,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:14:56.949Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 88.721875,
+    "totalUsdcSize": 46.135374999999996,
+    "asset": "2024001675534718398122082094641718649721346077548135700489345802390582828861",
+    "paidAt": "2026-02-25T14:14:57.930Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 300,
+    "totalUsdcSize": 141,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:15:22.737Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xcd83ba1774ba0f1c88f70465fa04edd11260fe9f0c4a81b33524f098f15b6e06",
+    "totalSize": 134,
+    "totalUsdcSize": 64.32,
+    "asset": "67689972803631568346565267520690053497670935098134429542474913339619773116478",
+    "paidAt": "2026-02-25T14:15:24.275Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772028900",
+    "title": "Bitcoin Up or Down - February 25, 9:15AM-9:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbf0702a168b2c480ce237564c9fd2920152c1b4579233a7bd850c02fd24e3f3a",
+    "totalSize": 168.28,
+    "totalUsdcSize": 70.6776,
+    "asset": "59127009272812064912946125518069537904023529310092943415137386432672823383135",
+    "paidAt": "2026-02-25T14:15:25.148Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 2.65,
+    "totalUsdcSize": 1.378,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:16:33.100Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 97.35,
+    "totalUsdcSize": 50.622,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:17:45.656Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 26.864311,
+    "totalUsdcSize": 13.163513,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:18:21.584Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 15,
+    "totalUsdcSize": 7.35,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:18:33.489Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 49.019606,
+    "totalUsdcSize": 24.019607,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:18:57.501Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 21.76,
+    "totalUsdcSize": 10.6624,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:19:09.829Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 244.225382,
+    "totalUsdcSize": 117.228184,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:20:09.807Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029200",
+    "title": "Bitcoin Up or Down - February 25, 9:20AM-9:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0x4c371766e1f95f38c63efeb703a600d3d5f2a691ac88970f16d02f882dfc650f",
+    "totalSize": 44.41,
+    "totalUsdcSize": 20.8727,
+    "asset": "8619642727536984857138980893054007348241439711443888128104154858828920015060",
+    "paidAt": "2026-02-25T14:20:10.655Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 10.268162,
+    "totalUsdcSize": 5.236763,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:22:10.048Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 2,
+    "totalUsdcSize": 1.02,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:22:58.023Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 2,
+    "totalUsdcSize": 1.02,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:23:10.094Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 85.73,
+    "totalUsdcSize": 43.7223,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:23:46.065Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 306.122447,
+    "totalUsdcSize": 156.122448,
+    "asset": "29314344531586166020650519100243593486246400311982869241162392421388954793210",
+    "paidAt": "2026-02-25T14:23:46.842Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 193.87,
+    "totalUsdcSize": 98.8737,
+    "asset": "29314344531586166020650519100243593486246400311982869241162392421388954793210",
+    "paidAt": "2026-02-25T14:24:34.254Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 62.783328,
+    "totalUsdcSize": 32.647332,
+    "asset": "29314344531586166020650519100243593486246400311982869241162392421388954793210",
+    "paidAt": "2026-02-25T14:24:46.541Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 499,
+    "totalUsdcSize": 219.56,
+    "asset": "25403385747839868826093668918781578628741112876941562893297159736994946248306",
+    "paidAt": "2026-02-25T14:24:47.474Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 251.16082800000004,
+    "totalUsdcSize": 130.603632,
+    "asset": "29314344531586166020650519100243593486246400311982869241162392421388954793210",
+    "paidAt": "2026-02-25T14:24:58.605Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029500",
+    "title": "Bitcoin Up or Down - February 25, 9:25AM-9:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0xc80b90dc321f4d4f315bd6ca508c81a15ab22c797fbadd44bdcfac3861a0e7ab",
+    "totalSize": 137.290812,
+    "totalUsdcSize": 70.018315,
+    "asset": "29314344531586166020650519100243593486246400311982869241162392421388954793210",
+    "paidAt": "2026-02-25T14:25:12.192Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 45.58,
+    "totalUsdcSize": 23.7016,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:27:22.767Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 41.666664,
+    "totalUsdcSize": 21.666666,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:27:34.717Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 195.693017,
+    "totalUsdcSize": 91.975718,
+    "asset": "101877670849227759455329186665944845220096570967978628786500834308463914138372",
+    "paidAt": "2026-02-25T14:28:10.962Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 300,
+    "totalUsdcSize": 144,
+    "asset": "101877670849227759455329186665944845220096570967978628786500834308463914138372",
+    "paidAt": "2026-02-25T14:28:11.868Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Up",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 200,
+    "totalUsdcSize": 98,
+    "asset": "101877670849227759455329186665944845220096570967978628786500834308463914138372",
+    "paidAt": "2026-02-25T14:28:12.763Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 15.829165,
+    "totalUsdcSize": 8.231166,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:28:22.868Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 96.91,
+    "totalUsdcSize": 50.3932,
+    "asset": "102633964021855088389832097494786020389661629600025074367210136634601364992276",
+    "paidAt": "2026-02-25T14:28:34.845Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 126.75,
+    "totalUsdcSize": 65.91,
+    "asset": "20494314662738579707450067068386900608648531997969631743614029663376933354220",
+    "paidAt": "2026-02-25T14:28:37.279Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 66.9452,
+    "totalUsdcSize": 36.04,
+    "asset": "20494314662738579707450067068386900608648531997969631743614029663376933354220",
+    "paidAt": "2026-02-25T14:28:46.942Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:35AM ET",
+    "outcome": "Down",
+    "conditionId": "0xb0a0ed3792a656a0d2c71657e7c63298e2c8022704815d8452f7d01eea55f2da",
+    "totalSize": 2.127658,
+    "totalUsdcSize": 1.127659,
+    "asset": "20494314662738579707450067068386900608648531997969631743614029663376933354220",
+    "paidAt": "2026-02-25T14:28:58.908Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772029800",
+    "title": "Bitcoin Up or Down - February 25, 9:30AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x0d64ee447253873d4ebf443a4dba7d1122c6098a934fb18beda5b1bb8c75fb90",
+    "totalSize": 100,
+    "totalUsdcSize": 45,
+    "asset": "61057509421408500694093091312878384464206838282543394138778147008396545027995",
+    "paidAt": "2026-02-25T14:29:23.093Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:31:11.634Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 5,
+    "totalUsdcSize": 2.5,
+    "asset": "97202083758656983567141467113635851557593889769426381577229952620068238577694",
+    "paidAt": "2026-02-25T14:31:23.342Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 20.2,
+    "totalUsdcSize": 9.898,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:32:47.473Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 79.8,
+    "totalUsdcSize": 39.102,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:33:11.693Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 198.374229,
+    "totalUsdcSize": 95.21963,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:33:12.270Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 42.896325,
+    "totalUsdcSize": 21.877126,
+    "asset": "97202083758656983567141467113635851557593889769426381577229952620068238577694",
+    "paidAt": "2026-02-25T14:34:11.881Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 84.69387400000001,
+    "totalUsdcSize": 43.193876,
+    "asset": "97202083758656983567141467113635851557593889769426381577229952620068238577694",
+    "paidAt": "2026-02-25T14:34:23.836Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 285.375923,
+    "totalUsdcSize": 131.272925,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:34:35.880Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Down",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 4.081631,
+    "totalUsdcSize": 2.081632,
+    "asset": "97202083758656983567141467113635851557593889769426381577229952620068238577694",
+    "paidAt": "2026-02-25T14:34:36.647Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030100",
+    "title": "Bitcoin Up or Down - February 25, 9:35AM-9:40AM ET",
+    "outcome": "Up",
+    "conditionId": "0x3e1fe95e1cde8a568d803651cf8323491e54ed6bfaeaa84594156fc2aa72c0a4",
+    "totalSize": 8.055554,
+    "totalUsdcSize": 3.705555,
+    "asset": "6206404812091910700031801344638472483143100087067830623020260288399938927369",
+    "paidAt": "2026-02-25T14:35:15.003Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 98.4375,
+    "totalUsdcSize": 50,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:38:12.456Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 40.01,
+    "totalUsdcSize": 20.005,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:39:00.555Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 23,
+    "totalUsdcSize": 11.5,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:39:12.795Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 36.989999999999995,
+    "totalUsdcSize": 18.494999999999997,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:39:24.699Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 18.85192,
+    "totalUsdcSize": 9.048922000000001,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:40:35.517Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030400",
+    "title": "Bitcoin Up or Down - February 25, 9:40AM-9:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x373a07b3b15090c009d5b0b44c47dd60608079cf6ea4c30028672764fa50c97a",
+    "totalSize": 398.505092,
+    "totalUsdcSize": 195.267496,
+    "asset": "95120831617658859674139707977701883778322818836100558782521135935717708048039",
+    "paidAt": "2026-02-25T14:41:01.120Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 104.35843000000001,
+    "totalUsdcSize": 51.135631000000004,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:01.443Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 4.7,
+    "totalUsdcSize": 2.303,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:25.285Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 95,
+    "totalUsdcSize": 47.5,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:37.807Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc29d934181ca393fef0b28974d5102f8f4e67c1816c784e90c77db2159f77d2e",
+    "totalSize": 55.855486,
+    "totalUsdcSize": 27.369189000000002,
+    "asset": "95314159578461240821232564867729706535972446327357942331380693888539062269564",
+    "paidAt": "2026-02-25T14:44:38.678Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 90.94,
+    "totalUsdcSize": 44.5606,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:39.205Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 244.071173,
+    "totalUsdcSize": 119.594875,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:49.876Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 106.080768,
+    "totalUsdcSize": 50.918769,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:44:50.603Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 66.80764599999999,
+    "totalUsdcSize": 32.735747,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:45:01.441Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc29d934181ca393fef0b28974d5102f8f4e67c1816c784e90c77db2159f77d2e",
+    "totalSize": 200,
+    "totalUsdcSize": 96,
+    "asset": "95314159578461240821232564867729706535972446327357942331380693888539062269564",
+    "paidAt": "2026-02-25T14:45:02.301Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc29d934181ca393fef0b28974d5102f8f4e67c1816c784e90c77db2159f77d2e",
+    "totalSize": 144.12,
+    "totalUsdcSize": 70.6188,
+    "asset": "95314159578461240821232564867729706535972446327357942331380693888539062269564",
+    "paidAt": "2026-02-25T14:45:07.607Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-9:50AM ET",
+    "outcome": "Up",
+    "conditionId": "0x8bd6d73fa726d7c4ae3a97810e0d3d6d45cd823b44b46adc9803d8a1f4218194",
+    "totalSize": 19.669409,
+    "totalUsdcSize": 9.638011,
+    "asset": "93616228514396139173878562712664966677684888883253002041121705159663792629257",
+    "paidAt": "2026-02-25T14:45:21.381Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc29d934181ca393fef0b28974d5102f8f4e67c1816c784e90c77db2159f77d2e",
+    "totalSize": 14.019229,
+    "totalUsdcSize": 6.72923,
+    "asset": "95314159578461240821232564867729706535972446327357942331380693888539062269564",
+    "paidAt": "2026-02-25T14:45:27.217Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772030700",
+    "title": "Bitcoin Up or Down - February 25, 9:45AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xc29d934181ca393fef0b28974d5102f8f4e67c1816c784e90c77db2159f77d2e",
+    "totalSize": 144,
+    "totalUsdcSize": 70.56,
+    "asset": "95314159578461240821232564867729706535972446327357942331380693888539062269564",
+    "paidAt": "2026-02-25T14:45:34.285Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031000",
+    "title": "Bitcoin Up or Down - February 25, 9:50AM-9:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5cc4cdf5bec2fc983e0b39ebdcbdfc61611811d4310fdae4390cab780edc9093",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "100963049164609490743940220094622623069322811533303016952710065732324441745260",
+    "paidAt": "2026-02-25T14:48:14.570Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031000",
+    "title": "Bitcoin Up or Down - February 25, 9:50AM-9:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5cc4cdf5bec2fc983e0b39ebdcbdfc61611811d4310fdae4390cab780edc9093",
+    "totalSize": 99.99176200000001,
+    "totalUsdcSize": 48.995964,
+    "asset": "100963049164609490743940220094622623069322811533303016952710065732324441745260",
+    "paidAt": "2026-02-25T14:49:14.914Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031000",
+    "title": "Bitcoin Up or Down - February 25, 9:50AM-9:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5cc4cdf5bec2fc983e0b39ebdcbdfc61611811d4310fdae4390cab780edc9093",
+    "totalSize": 4.393075,
+    "totalUsdcSize": 2.108676,
+    "asset": "100963049164609490743940220094622623069322811533303016952710065732324441745260",
+    "paidAt": "2026-02-25T14:49:26.639Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031000",
+    "title": "Bitcoin Up or Down - February 25, 9:50AM-9:55AM ET",
+    "outcome": "Up",
+    "conditionId": "0x5cc4cdf5bec2fc983e0b39ebdcbdfc61611811d4310fdae4390cab780edc9093",
+    "totalSize": 295.6,
+    "totalUsdcSize": 141.888,
+    "asset": "100963049164609490743940220094622623069322811533303016952710065732324441745260",
+    "paidAt": "2026-02-25T14:49:38.316Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 72.30301700000001,
+    "totalUsdcSize": 33.982418,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:51:15.379Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 27.689999999999998,
+    "totalUsdcSize": 13.0143,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:51:26.917Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 100,
+    "totalUsdcSize": 46,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:52:14.941Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 49.26,
+    "totalUsdcSize": 22.6596,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:53:15.357Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031300",
+    "title": "Bitcoin Up or Down - February 25, 9:55AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xba400333f4fd704805323a47929d594d0938d326dd0fe36caf4a187d6958a7a9",
+    "totalSize": 100,
+    "totalUsdcSize": 48,
+    "asset": "27611252186930026213607751828003038364975748949775957710396902268965391385376",
+    "paidAt": "2026-02-25T14:54:51.387Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031300",
+    "title": "Bitcoin Up or Down - February 25, 9:55AM-10:00AM ET",
+    "outcome": "Up",
+    "conditionId": "0xba400333f4fd704805323a47929d594d0938d326dd0fe36caf4a187d6958a7a9",
+    "totalSize": 100,
+    "totalUsdcSize": 49,
+    "asset": "27611252186930026213607751828003038364975748949775957710396902268965391385376",
+    "paidAt": "2026-02-25T14:54:52.157Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 63.28,
+    "totalUsdcSize": 29.1088,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:56:39.844Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 205.76999999999998,
+    "totalUsdcSize": 90.53880000000001,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:56:51.578Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 200,
+    "totalUsdcSize": 90,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:56:52.160Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 142.030174,
+    "totalUsdcSize": 61.072975,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:56:52.848Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 199.72,
+    "totalUsdcSize": 91.8712,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:56:53.704Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 13,
+    "totalUsdcSize": 5.72,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:57:03.334Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 92.53372200000001,
+    "totalUsdcSize": 45.341524,
+    "asset": "88582261726479081041313284436569830130328763467777041976311237810138156408861",
+    "paidAt": "2026-02-25T14:57:51.756Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 137.17,
+    "totalUsdcSize": 68.585,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T14:59:03.750Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 67.448977,
+    "totalUsdcSize": 34.398979,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T14:59:16.051Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 21.845270000000003,
+    "totalUsdcSize": 9.830372,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:59:17.045Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 199.990534,
+    "totalUsdcSize": 87.995835,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:59:27.776Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 63.367335999999995,
+    "totalUsdcSize": 32.317344,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T14:59:28.878Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 178.15,
+    "totalUsdcSize": 80.1675,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T14:59:29.925Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 147.448843,
+    "totalUsdcSize": 70.775445,
+    "asset": "88582261726479081041313284436569830130328763467777041976311237810138156408861",
+    "paidAt": "2026-02-25T14:59:39.825Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 200,
+    "totalUsdcSize": 98,
+    "asset": "88582261726479081041313284436569830130328763467777041976311237810138156408861",
+    "paidAt": "2026-02-25T14:59:40.371Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 65.6587,
+    "totalUsdcSize": 34.017,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T14:59:51.917Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 37.4082,
+    "totalUsdcSize": 19.76,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T14:59:52.463Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Up",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 66.096149,
+    "totalUsdcSize": 31.726152,
+    "asset": "88582261726479081041313284436569830130328763467777041976311237810138156408861",
+    "paidAt": "2026-02-25T14:59:53.842Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0x539a3fc18101fde0ea4233009662659e27dfa3b3de24b5dd7567f557a78bcd3a",
+    "totalSize": 6.96,
+    "totalUsdcSize": 3.0624,
+    "asset": "91403369953478276782472917408571648193380762833127419802341729869339955359669",
+    "paidAt": "2026-02-25T15:00:07.850Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031600",
+    "title": "Bitcoin Up or Down - February 25, 10:00AM-10:05AM ET",
+    "outcome": "Down",
+    "conditionId": "0x80335c6516693fd4182ffd8dad90d670bc040a667361bdac414bced3233dd08f",
+    "totalSize": 33.3,
+    "totalUsdcSize": 16.983,
+    "asset": "98812627593183873208770283989528043419346824934392327424715225527429278052152",
+    "paidAt": "2026-02-25T15:00:33.245Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 37.008036000000004,
+    "totalUsdcSize": 18.133938,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:02:28.096Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 36.61,
+    "totalUsdcSize": 17.9389,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:02:40.158Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 5,
+    "totalUsdcSize": 2.45,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:02:54.925Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 6.862742,
+    "totalUsdcSize": 3.3627439999999997,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:03:04.288Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 5,
+    "totalUsdcSize": 2.45,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:03:16.206Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 182.29000000000002,
+    "totalUsdcSize": 87.4992,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:03:40.552Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 25,
+    "totalUsdcSize": 12,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:03:52.292Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 9.615383,
+    "totalUsdcSize": 4.615384,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:04:05.196Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772031900",
+    "title": "Bitcoin Up or Down - February 25, 10:05AM-10:10AM ET",
+    "outcome": "Up",
+    "conditionId": "0x61706d438efae8d010c98120b3dd74e6bb8be0f7a13ea44f62f30182daed2729",
+    "totalSize": 183.09,
+    "totalUsdcSize": 87.88319999999999,
+    "asset": "60877733360363269331752731174705028298426147583826764587773355835398714417404",
+    "paidAt": "2026-02-25T15:04:16.633Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 24.07,
+    "totalUsdcSize": 11.0722,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:06:52.976Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 94.814813,
+    "totalUsdcSize": 43.614813999999996,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:07:04.888Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 254.31,
+    "totalUsdcSize": 116.98260000000005,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:07:17.630Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 64.8,
+    "totalUsdcSize": 29.807999999999996,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:07:29.013Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 72.867842,
+    "totalUsdcSize": 35.705243,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:08:17.108Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 127.13,
+    "totalUsdcSize": 62.2937,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:08:29.217Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 48.43392,
+    "totalUsdcSize": 23.732621,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:08:41.612Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 59.80392,
+    "totalUsdcSize": 29.303921,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:08:53.662Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 132.156468,
+    "totalUsdcSize": 64.75667000000001,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:10:05.996Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032200",
+    "title": "Bitcoin Up or Down - February 25, 10:10AM-10:15AM ET",
+    "outcome": "Up",
+    "conditionId": "0xbb7dc121d86aef84ae8c77019269a3ef1f8f414928cb98469c826845e1d81d1a",
+    "totalSize": 11.764702999999999,
+    "totalUsdcSize": 5.764705,
+    "asset": "112488063719391118546042589877480914153599622602784708926598987450026262579650",
+    "paidAt": "2026-02-25T15:10:22.045Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf0a83e2527ce60f67e378fcbb390a14c3e80e8ac04031c3aed8100437622fdbe",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "30419441223819685060823564534736824266067013905407215773336793499938436762684",
+    "paidAt": "2026-02-25T15:11:17.501Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 310.8436,
+    "totalUsdcSize": 155.4218,
+    "asset": "100466576700430338162870413393574325142868836619679193468400503806609368974185",
+    "paidAt": "2026-02-25T15:13:41.940Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 72,
+    "totalUsdcSize": 34.56,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:13:54.533Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 189.267357,
+    "totalUsdcSize": 88.955658,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:13:55.149Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 45.424148,
+    "totalUsdcSize": 21.349349999999998,
+    "asset": "113608042495416536820385430309230611979011600444523467936093085498809094500114",
+    "paidAt": "2026-02-25T15:14:06.089Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 20.755099,
+    "totalUsdcSize": 10.585101,
+    "asset": "100466576700430338162870413393574325142868836619679193468400503806609368974185",
+    "paidAt": "2026-02-25T15:14:18.329Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf0a83e2527ce60f67e378fcbb390a14c3e80e8ac04031c3aed8100437622fdbe",
+    "totalSize": 100,
+    "totalUsdcSize": 47,
+    "asset": "30419441223819685060823564534736824266067013905407215773336793499938436762684",
+    "paidAt": "2026-02-25T15:14:30.435Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 70.408162,
+    "totalUsdcSize": 35.908163,
+    "asset": "100466576700430338162870413393574325142868836619679193468400503806609368974185",
+    "paidAt": "2026-02-25T15:14:31.399Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:30AM ET",
+    "outcome": "Down",
+    "conditionId": "0x1c479f869820d893eead25a6b440b54b29e2e6eb6f2721c4cf29873142dcb8c5",
+    "totalSize": 4.08163,
+    "totalUsdcSize": 2.081632,
+    "asset": "100466576700430338162870413393574325142868836619679193468400503806609368974185",
+    "paidAt": "2026-02-25T15:14:42.226Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:20AM ET",
+    "outcome": "Up",
+    "conditionId": "0xf0a83e2527ce60f67e378fcbb390a14c3e80e8ac04031c3aed8100437622fdbe",
+    "totalSize": 3.396225,
+    "totalUsdcSize": 1.596226,
+    "asset": "30419441223819685060823564534736824266067013905407215773336793499938436762684",
+    "paidAt": "2026-02-25T15:14:43.021Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032500",
+    "title": "Bitcoin Up or Down - February 25, 10:15AM-10:20AM ET",
+    "outcome": "Down",
+    "conditionId": "0xf0a83e2527ce60f67e378fcbb390a14c3e80e8ac04031c3aed8100437622fdbe",
+    "totalSize": 100,
+    "totalUsdcSize": 50,
+    "asset": "63243025587365877434578516170083854255495694014202002476857938089127361094075",
+    "paidAt": "2026-02-25T15:15:06.767Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032800",
+    "title": "Bitcoin Up or Down - February 25, 10:20AM-10:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa5e0d5d18fe5bc1444ce5eac0e8abfa467ab6bb63a480f3a77b71d17f9538d7c",
+    "totalSize": 98.97,
+    "totalUsdcSize": 49.485,
+    "asset": "109349749182472398242981501176610230763540702212814488689063216011408622512970",
+    "paidAt": "2026-02-25T15:18:07.178Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032800",
+    "title": "Bitcoin Up or Down - February 25, 10:20AM-10:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa5e0d5d18fe5bc1444ce5eac0e8abfa467ab6bb63a480f3a77b71d17f9538d7c",
+    "totalSize": 1.03,
+    "totalUsdcSize": 0.515,
+    "asset": "109349749182472398242981501176610230763540702212814488689063216011408622512970",
+    "paidAt": "2026-02-25T15:18:18.899Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772032800",
+    "title": "Bitcoin Up or Down - February 25, 10:20AM-10:25AM ET",
+    "outcome": "Up",
+    "conditionId": "0xa5e0d5d18fe5bc1444ce5eac0e8abfa467ab6bb63a480f3a77b71d17f9538d7c",
+    "totalSize": 100,
+    "totalUsdcSize": 49,
+    "asset": "109349749182472398242981501176610230763540702212814488689063216011408622512970",
+    "paidAt": "2026-02-25T15:19:06.840Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 39,
+    "totalUsdcSize": 18.72,
+    "asset": "99559703945269060391185037800686078510875203830559577415543058894842334099789",
+    "paidAt": "2026-02-25T15:21:10.315Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 47.22,
+    "totalUsdcSize": 22.1934,
+    "asset": "99559703945269060391185037800686078510875203830559577415543058894842334099789",
+    "paidAt": "2026-02-25T15:21:10.940Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 69,
+    "totalUsdcSize": 33.120000000000005,
+    "asset": "99559703945269060391185037800686078510875203830559577415543058894842334099789",
+    "paidAt": "2026-02-25T15:21:22.442Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 33,
+    "totalUsdcSize": 15.840000000000002,
+    "asset": "99559703945269060391185037800686078510875203830559577415543058894842334099789",
+    "paidAt": "2026-02-25T15:21:46.510Z"
+  },
+  {
+    "slug": "btc-updown-5m-1772033100",
+    "title": "Bitcoin Up or Down - February 25, 10:25AM-10:30AM ET",
+    "outcome": "Up",
+    "conditionId": "0x7f3d5ac1dc688da5631a269e83ab2b5fc45ca01ac00081e7abca99e69ea558f3",
+    "totalSize": 100,
+    "totalUsdcSize": 49,
+    "asset": "20591238359821148067182132307462117431494079643120920453283440469559470362308",
+    "paidAt": "2026-02-25T15:21:58.296Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Up",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 11,
+    "totalUsdcSize": 5.28,
+    "asset": "99559703945269060391185037800686078510875203830559577415543058894842334099789",
+    "paidAt": "2026-02-25T15:21:59.173Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 5.56,
+    "totalUsdcSize": 2.78,
+    "asset": "9086443974785087888794207221673711460939158435909438913364248871277817497761",
+    "paidAt": "2026-02-25T15:25:42.803Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 115,
+    "totalUsdcSize": 57.5,
+    "asset": "9086443974785087888794207221673711460939158435909438913364248871277817497761",
+    "paidAt": "2026-02-25T15:25:55.871Z"
+  },
+  {
+    "slug": "btc-updown-15m-1772033400",
+    "title": "Bitcoin Up or Down - February 25, 10:30AM-10:45AM ET",
+    "outcome": "Down",
+    "conditionId": "0x229a3f18abf46312a79f8e4bad2cfb21854c7ac163da7cb366f85d9466e32898",
+    "totalSize": 8.44,
+    "totalUsdcSize": 4.22,
+    "asset": "9086443974785087888794207221673711460939158435909438913364248871277817497761",
+    "paidAt": "2026-02-25T15:26:06.893Z"
   }
 ]

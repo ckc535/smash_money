@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
+import cron from "node-cron";
 import { createClient } from "redis";
 import { ClobClient, Side, OrderType, TickSize } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
 import axios from "axios";
 import dotenv from "dotenv";
+import { runRedeem } from "./redeem";
 dotenv.config();
 
 const DRY_RUN = process.env.DRY_RUN !== "false";
@@ -369,7 +371,19 @@ async function main(): Promise<void> {
 
   await runCron1();
 
-  console.log("Cron: Cron1 mỗi 10s (pay). Slug: 5m + 15m.");
+  // Cron2: redeem positions mỗi 5 phút, và chạy ngay từ đầu
+  cron.schedule("*/5 * * * *", () => {
+    console.log("[Cron2] Chạy redeemPositions...");
+    runRedeem().catch((e) =>
+      console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
+    );
+  });
+  console.log("[Cron2] Chạy redeemPositions ngay từ đầu...");
+  runRedeem().catch((e) =>
+    console.error("[Cron2] Lỗi redeem (lần đầu):", e instanceof Error ? e.message : e)
+  );
+
+  console.log("Cron: Cron1 mỗi 3s (pay). Cron2 mỗi 5 phút (redeem), chạy ngay lúc start. Slug: 5m + 15m.");
 }
 
 main();
