@@ -11,33 +11,21 @@ const DRY_RUN = process.env.DRY_RUN !== "false";
 
 const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
-const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
-const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
-const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 30 * 60; // 30 phút — tránh trùng
+const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders, paid:slug)
 const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
 
+const MIN_USDC_SIZE_5M = 50;
+const MIN_USDC_SIZE_15M = 100;
 const ORDER_SIZE_5M = 100;
 const ORDER_SIZE_15M = 150;
 
 const is5m = (slug: string) => slug?.includes("btc-updown-5m");
+const getMinUsdcSize = (slug: string) => (is5m(slug) ? MIN_USDC_SIZE_5M : MIN_USDC_SIZE_15M);
 const getOrderSize = (slug: string) => (is5m(slug) ? ORDER_SIZE_5M : ORDER_SIZE_15M);
 
 /** Slug match cả 5m và 15m (gộp 1 file). */
 const SLUG_MATCH = (slug: string) =>
   slug?.includes("btc-updown-5m") || slug?.includes("btc-updown-15m");
-
-/** Timestamp tối thiểu trong slug (slug dạng btc-updown-5m-1771909800). Chỉ activity có slug timestamp > biến này mới valid. */
-const MIN_SLUG_TIMESTAMP = process.env.MIN_SLUG_TIMESTAMP
-  ? parseInt(process.env.MIN_SLUG_TIMESTAMP, 10)
-  : 0;
-
-function getTimestampFromSlug(slug: string): number | null {
-  const parts = String(slug ?? "").split("-");
-  const last = parts[parts.length - 1];
-  if (last == null) return null;
-  const n = parseInt(last, 10);
-  return Number.isNaN(n) ? null : n;
-}
 
 let redisClient: ReturnType<typeof createClient> | null = null;
 
@@ -50,7 +38,6 @@ interface Activity {
   price: number;
   asset: string;
   outcome: string;
-  transactionHash?: string; // unique — dùng để check đã xử lí hay chưa (Redis 30p)
   [key: string]: unknown;
 }
 
@@ -63,19 +50,6 @@ interface SlugSummary {
   totalUsdcSize: number;
   avgPrice: number;
   asset: string;
-}
-
-/** Nhóm activities theo (conditionId, price, asset) — dùng để pay theo từng nhóm; giữ transactionHashes để đánh dấu đã xử lí. */
-interface ActivityGroup {
-  slug: string;
-  title: string;
-  outcome: string;
-  conditionId: string;
-  asset: string;
-  price: number;
-  totalSize: number;
-  totalUsdcSize: number;
-  transactionHashes: string[];
 }
 
 interface PaidOrder {
@@ -133,11 +107,7 @@ async function getActivities(address: string): Promise<Activity[]> {
     const data: Activity[] = [];
     for (const activity of raw) {
       if (activity.type === "TRADE" && SLUG_MATCH(activity.slug) && activity.side === "BUY") {
-        const slugTs = getTimestampFromSlug(activity.slug);
-        if (slugTs != null && slugTs >= MIN_SLUG_TIMESTAMP) {
-          const price = Math.round(Number(activity.price) * 100) / 100;
-          data.push({ ...activity, price });
-        }
+        data.push(activity);
       }
     }
     return data;
@@ -170,66 +140,34 @@ async function getMarket(
   return data;
 }
 
-/** Lọc activities chưa được xử lí (transactionHash chưa có trong Redis). */
-async function filterUnprocessedActivities(
-  redis: Awaited<ReturnType<typeof getRedis>>,
-  activities: Activity[]
-): Promise<Activity[]> {
-  const withTxHash = activities.filter((a) => a.transactionHash);
-  if (withTxHash.length === 0) return [];
-  const keys = withTxHash.map((a) => REDIS_PROCESSED_ACTIVITY_PREFIX + (a.transactionHash ?? ""));
-  const existing = await redis.mGet(keys);
-  const processedSet = new Set(
-    keys.filter((_, i) => existing[i] != null)
-  );
-  return withTxHash.filter((a) => !processedSet.has(REDIS_PROCESSED_ACTIVITY_PREFIX + (a.transactionHash ?? "")));
-}
-
-/** Đánh dấu các activity (theo transactionHash) đã xử lí — Redis TTL 30 phút. Gọi trước pay để tránh race (cron chạy lại pay 2 lần). */
-async function markActivitiesProcessed(
-  redis: Awaited<ReturnType<typeof getRedis>>,
-  transactionHashes: string[]
-): Promise<void> {
-  for (const tx of transactionHashes) {
-    await redis.set(REDIS_PROCESSED_ACTIVITY_PREFIX + tx, "1", { EX: REDIS_PROCESSED_ACTIVITY_TTL_SEC });
-  }
-}
-
-/** Gộp activities theo (conditionId, price, asset); tổng size và usdcSize; lưu danh sách transactionHash để đánh dấu sau khi pay. */
-function aggregateByConditionIdPriceAsset(activities: Activity[]): ActivityGroup[] {
-  const key = (a: Activity) =>
-    `${String(a.conditionId ?? "")}\n${Number(a.price)}\n${String(a.asset ?? "")}`;
-  const byKey = new Map<string, Activity[]>();
+function aggregateBySlugAndOutcome(activities: Activity[]): SlugSummary[] {
+  const key = (a: Activity) => `${a.slug}\n${String(a.outcome ?? "")}`;
+  const bySlugOutcome = new Map<string, Activity[]>();
   for (const a of activities) {
     const k = key(a);
-    const list = byKey.get(k) ?? [];
+    const list = bySlugOutcome.get(k) ?? [];
     list.push(a);
-    byKey.set(k, list);
+    bySlugOutcome.set(k, list);
   }
-  return Array.from(byKey.entries()).map(([, list]) => {
+  return Array.from(bySlugOutcome.entries()).map(([, list]) => {
     const totalSize = list.reduce((s, a) => s + Number(a.size), 0);
     const totalUsdcSize = list.reduce((s, a) => s + Number(a.usdcSize), 0);
+    const avgPrice =
+      list.length > 0
+        ? list.reduce((s, a) => s + Number(a.price), 0) / list.length
+        : 0;
     const first = list[0]!;
-    const transactionHashes = list
-      .map((a) => a.transactionHash)
-      .filter((t): t is string => Boolean(t));
     return {
       slug: first.slug,
       title: String(first.title ?? ""),
       outcome: String(first.outcome ?? ""),
       conditionId: String(first.conditionId ?? ""),
-      asset: String(first.asset ?? ""),
-      price: Number(first.price),
       totalSize,
       totalUsdcSize,
-      transactionHashes,
+      avgPrice,
+      asset: String(first.asset ?? ""),
     };
   });
-}
-
-/** Trả về tất cả nhóm để pay (không lọc theo min USDC). */
-function pickCandidatesToPayFromGroups(groups: ActivityGroup[]): ActivityGroup[] {
-  return groups;
 }
 
 async function loadPaidOrdersFromRedis(): Promise<PaidOrder[]> {
@@ -252,7 +190,29 @@ function savePaidOrdersToFile(orders: PaidOrder[]): void {
   fs.writeFileSync(PAID_ORDERS_PATH, JSON.stringify(orders, null, 2), "utf-8");
 }
 
-/** Pay một lệnh (createAndPostOrder) — size từ nhóm activity đã gộp. */
+function pickCandidatesToPay(
+  summary: SlugSummary[],
+  paidOrders: PaidOrder[]
+): SlugSummary[] {
+  const paidSlugs = new Set(paidOrders.map((p) => p.slug));
+  const bySlug = new Map<string, SlugSummary[]>();
+  for (const s of summary) {
+    const list = bySlug.get(s.slug) ?? [];
+    list.push(s);
+    bySlug.set(s.slug, list);
+  }
+  const candidates: SlugSummary[] = [];
+  for (const [, list] of bySlug.entries()) {
+    if (paidSlugs.has(list[0]!.slug)) continue;
+    const withLargerUsdc = list.sort((a, b) => b.totalUsdcSize - a.totalUsdcSize);
+    const chosen = withLargerUsdc[0]!;
+    if (chosen.totalUsdcSize < getMinUsdcSize(chosen.slug)) continue;
+    candidates.push(chosen);
+  }
+  return candidates;
+}
+
+/** Pay một lệnh (createAndPostOrder) — version cũ, từng order một. */
 async function payMoney(
   client: ClobClient,
   tokenId: string,
@@ -288,32 +248,38 @@ async function runCron1(): Promise<void> {
     try {
       const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
       const activities = await getActivities(address);
-      const redis = await getRedis();
-      const unprocessed = await filterUnprocessedActivities(redis, activities);
-      if (unprocessed.length === 0) {
-        return;
-      }
-      const groups = aggregateByConditionIdPriceAsset(unprocessed);
-      const candidates = pickCandidatesToPayFromGroups(groups);
-      if (candidates.length === 0) return;
+      const summary = aggregateBySlugAndOutcome(activities);
 
       const paidOrders = await loadPaidOrdersFromRedis();
+      let candidates = pickCandidatesToPay(summary, paidOrders);
+      if (candidates.length === 0) return;
+
+      const redis = await getRedis();
+      const stillNotInRedis: SlugSummary[] = [];
+      for (const c of candidates) {
+        const key = `paid:${c.slug}`;
+        const exists = await redis.get(key);
+        if (!exists) stillNotInRedis.push(c);
+      }
+      candidates = stillNotInRedis;
+      if (candidates.length === 0) return;
+
       const client = await getClobClient();
       const newPaid: PaidOrder[] = [];
 
       for (const c of candidates) {
         try {
-          await markActivitiesProcessed(redis, c.transactionHashes);
           const market = await getMarket(client, c.conditionId);
           const info = market[c.outcome];
           if (!info) {
             console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
             continue;
           }
-          let price = Math.round(c.price * 100) / 100;
-          // chia 5 và làm tròn size đến 1 chữ số thập phân
-          let size = Math.round(c.totalSize / 3 * 10) / 10;
-          if (size < 5) size = 5;
+          let price = Math.round(c.avgPrice * 100) / 100;
+          const size = getOrderSize(c.slug);
+          if (c.slug.includes("btc-updown-15m")) {
+            price = 0.4;
+          }
           await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
           newPaid.push({
             slug: c.slug,
@@ -334,7 +300,10 @@ async function runCron1(): Promise<void> {
         const updated = [...paidOrders, ...newPaid];
         await savePaidOrdersToRedis(updated);
         savePaidOrdersToFile(updated);
-        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, đánh dấu activity đã xử lí (Redis 30p), lưu paid_orders + file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
+        for (const o of newPaid) {
+          await redis.setEx(`paid:${o.slug}`, REDIS_EXPIRE_SEC, "1");
+        }
+        console.log(`[Cron1] Đã lưu ${newPaid.length} lệnh vào Redis (paid_orders + paid:slug) và file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
       }
       console.log("[Cron1] Xong.");
       return;
@@ -362,10 +331,9 @@ async function runCron1(): Promise<void> {
 
 async function main(): Promise<void> {
   console.log("DRY_RUN =", DRY_RUN);
-  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH);
-  console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
+  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH, "| Dup: Redis paid:slug TTL", REDIS_EXPIRE_SEC, "s");
 
-  setInterval(() => runCron1(), 3 * 1000);
+  setInterval(() => runCron1(), 10 * 1000);
 
   await runCron1();
 
