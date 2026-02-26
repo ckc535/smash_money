@@ -10,6 +10,8 @@ import { runRedeem } from "./redeem";
 dotenv.config();
 
 const DRY_RUN = process.env.DRY_RUN !== "false";
+/** Cron2 (redeem): chỉ chạy khi AUTO_CLAIM=true trong .env */
+const AUTO_CLAIM = process.env.AUTO_CLAIM === "true";
 
 const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
@@ -17,6 +19,9 @@ const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
 const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
 const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 30 * 60; // 30 phút — tránh trùng
 const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
+
+/** Tránh chạy 2 lần Cron1 song song (double pay). */
+let cron1InProgress = false;
 
 const ORDER_SIZE_5M = 100;
 const ORDER_SIZE_15M = 150;
@@ -120,7 +125,7 @@ async function getClobClient(): Promise<ClobClient> {
     signer,
     userApiCreds,
     1,
-    "0x2765B2B2DD655169a9D34E21fd80229fEbF4dc7F"
+    process.env.PROXY_WALLET!
   );
 }
 
@@ -285,58 +290,66 @@ async function payMoney(
 }
 
 async function runCron1(): Promise<void> {
+  if (cron1InProgress) {
+    return;
+  }
+  cron1InProgress = true;
   let lastErr: Error | undefined;
-  for (let attempt = 1; attempt <= CRON1_MAX_RETRIES; attempt++) {
-    try {
-      const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
-      const activities = await getActivities(address);
-      const redis = await getRedis();
-      const unprocessed = await filterUnprocessedActivities(redis, activities);
-      if (unprocessed.length === 0) {
-        return;
-      }
-      const groups = aggregateByConditionIdPriceAsset(unprocessed);
-      const candidates = pickCandidatesToPayFromGroups(groups);
-      if (candidates.length === 0) return;
-
-      const paidOrders = await loadPaidOrdersFromRedis();
-      const client = await getClobClient();
-      const newPaid: PaidOrder[] = [];
-
-      for (const c of candidates) {
-        try {
-          await markActivitiesProcessed(redis, c.transactionHashes);
-          const market = await getMarket(client, c.conditionId);
-          const info = market[c.outcome];
-          if (!info) {
-            console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
-            continue;
-          }
-          let price = Math.round(c.price * 100) / 100;
-          // chia 5 và làm tròn size đến 1 chữ số thập phân
-          let size = Math.round(c.totalSize / 3 * 10) / 10;
-          if (size < 5) size = 5;
-          await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-          newPaid.push({
-            slug: c.slug,
-            title: c.title,
-            outcome: c.outcome,
-            conditionId: c.conditionId,
-            totalSize: c.totalSize,
-            totalUsdcSize: c.totalUsdcSize,
-            asset: c.asset,
-            paidAt: new Date().toISOString(),
-          });
-        } catch (err) {
-          console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
+  try {
+    for (let attempt = 1; attempt <= CRON1_MAX_RETRIES; attempt++) {
+      try {
+        const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
+        const activities = await getActivities(address);
+        const redis = await getRedis();
+        const unprocessed = await filterUnprocessedActivities(redis, activities);
+        if (unprocessed.length === 0) {
+          return;
         }
-      }
+        const groups = aggregateByConditionIdPriceAsset(unprocessed);
+        const candidates = pickCandidatesToPayFromGroups(groups);
+        if (candidates.length === 0) return;
+
+        // Đánh dấu Redis sớm: tất cả txHash của tất cả candidate ngay lập tức,
+        // để cron lần sau không lấy trùng (tránh double pay khi 2 run chồng lên nhau).
+        const allTxHashes = candidates.flatMap((c) => c.transactionHashes);
+        await markActivitiesProcessed(redis, allTxHashes);
+
+        const paidOrders = await loadPaidOrdersFromRedis();
+        const client = await getClobClient();
+        const newPaid: PaidOrder[] = [];
+
+        for (const c of candidates) {
+          try {
+            const market = await getMarket(client, c.conditionId);
+            const info = market[c.outcome];
+            if (!info) {
+              console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
+              continue;
+            }
+            let price = Math.round(c.price * 100) / 100;
+            let size = Math.round((c.totalSize / 3) * 10) / 10;
+            if (size < 5) size = 5;
+            await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
+            newPaid.push({
+              slug: c.slug,
+              title: c.title,
+              outcome: c.outcome,
+              conditionId: c.conditionId,
+              totalSize: c.totalSize,
+              totalUsdcSize: c.totalUsdcSize,
+              asset: c.asset,
+              paidAt: new Date().toISOString(),
+            });
+          } catch (err) {
+            console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
+          }
+        }
 
       if (newPaid.length > 0) {
         const updated = [...paidOrders, ...newPaid];
         await savePaidOrdersToRedis(updated);
         savePaidOrdersToFile(updated);
-        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, đánh dấu activity đã xử lí (Redis 30p), lưu paid_orders + file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
+        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, lưu paid_orders + file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
       }
       console.log("[Cron1] Xong.");
       return;
@@ -360,10 +373,14 @@ async function runCron1(): Promise<void> {
     lastErr?.message ?? "unknown"
   );
   process.exit(1);
+  } finally {
+    cron1InProgress = false;
+  }
 }
 
 async function main(): Promise<void> {
-  console.log("DRY_RUN =", DRY_RUN);
+  console.log("DRY_RUN =", DRY_RUN, "| AUTO_CLAIM =", AUTO_CLAIM);
+  console.log("PROXY_WALLET =", process.env.PROXY_WALLET ?? "(chưa set)");
   console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH);
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
@@ -371,19 +388,21 @@ async function main(): Promise<void> {
 
   await runCron1();
 
-  // Cron2: redeem positions mỗi 5 phút, và chạy ngay từ đầu
-  cron.schedule("*/5 * * * *", () => {
-    console.log("[Cron2] Chạy redeemPositions...");
+  if (AUTO_CLAIM) {
+    cron.schedule("*/5 * * * *", () => {
+      console.log("[Cron2] Chạy redeemPositions...");
+      runRedeem().catch((e) =>
+        console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
+      );
+    });
+    console.log("[Cron2] Chạy redeemPositions ngay từ đầu...");
     runRedeem().catch((e) =>
-      console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
+      console.error("[Cron2] Lỗi redeem (lần đầu):", e instanceof Error ? e.message : e)
     );
-  });
-  console.log("[Cron2] Chạy redeemPositions ngay từ đầu...");
-  runRedeem().catch((e) =>
-    console.error("[Cron2] Lỗi redeem (lần đầu):", e instanceof Error ? e.message : e)
-  );
+  }
 
-  console.log("Cron: Cron1 mỗi 3s (pay). Cron2 mỗi 5 phút (redeem), chạy ngay lúc start. Slug: 5m + 15m.");
+  console.log("Cron1 mỗi 3s (pay). Slug: 5m + 15m.");
+  if (AUTO_CLAIM) console.log("Cron2: redeem mỗi 5 phút, chạy ngay lúc start.");
 }
 
 main();

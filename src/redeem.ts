@@ -128,6 +128,7 @@ export async function runRedeem(): Promise<void> {
   });
 
   const client = new RelayClient(relayerUrl, chainId, wallet, builderConfig, RelayerTxType.PROXY);
+//   console.log("client", client);
 
   console.log("🚀 Redeeming resolved positions");
   console.log("════════════════════════════════════════════════════");
@@ -143,7 +144,7 @@ export async function runRedeem(): Promise<void> {
 
   const redeemablePositions = allPositions.filter(
     (pos) =>
-      (pos.curPrice >= RESOLVED_HIGH || pos.curPrice <= RESOLVED_LOW) &&
+      (pos.curPrice >= RESOLVED_HIGH) &&
       pos.redeemable === true
   );
 
