@@ -12,6 +12,8 @@ dotenv.config();
 const DRY_RUN = process.env.DRY_RUN !== "false";
 /** Cron2 (redeem): chỉ chạy khi AUTO_CLAIM=true trong .env */
 const AUTO_CLAIM = process.env.AUTO_CLAIM === "true";
+const DIVISION_FACTOR = parseInt(process.env.DIVISION_FACTOR!);
+console.log("DIVISION_FACTOR", DIVISION_FACTOR);
 
 const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
@@ -23,15 +25,11 @@ const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, khô
 /** Tránh chạy 2 lần Cron1 song song (double pay). */
 let cron1InProgress = false;
 
-const ORDER_SIZE_5M = 100;
-const ORDER_SIZE_15M = 150;
 
-const is5m = (slug: string) => slug?.includes("btc-updown-5m");
-const getOrderSize = (slug: string) => (is5m(slug) ? ORDER_SIZE_5M : ORDER_SIZE_15M);
 
 /** Slug match cả 5m và 15m (gộp 1 file). */
 const SLUG_MATCH = (slug: string) =>
-  slug?.includes("btc-updown-5m") || slug?.includes("btc-updown-15m");
+  slug?.includes("updown-5m") || slug?.includes("updown-15m");
 
 /** Timestamp tối thiểu trong slug (slug dạng btc-updown-5m-1771909800). Chỉ activity có slug timestamp > biến này mới valid. */
 const MIN_SLUG_TIMESTAMP = process.env.MIN_SLUG_TIMESTAMP
@@ -273,6 +271,15 @@ async function payMoney(
     console.log("[DRY_RUN] payMoney simulated:", { tokenId, side, price, size, negRisk, tickSize });
     return { dryRun: true };
   }
+  // const response = await client.createAndPostMarketOrder({
+  //   tokenID: tokenId,
+  //   price,
+  //   amount: size,
+  //   side,
+  // },{tickSize: String(0.01) as TickSize, negRisk},
+  //   OrderType.FAK
+  // );
+  // console.log("[payMoney] result:", response);
   const response = await client.createAndPostOrder(
     {
       tokenID: tokenId,
@@ -327,7 +334,7 @@ async function runCron1(): Promise<void> {
               continue;
             }
             let price = Math.round(c.price * 100) / 100;
-            let size = Math.round((c.totalSize / 3) * 10) / 10;
+            let size = Math.round((c.totalSize / DIVISION_FACTOR) * 10) / 10;
             if (size < 5) size = 5;
             await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
             newPaid.push({
