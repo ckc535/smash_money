@@ -11,6 +11,8 @@
     "get-market": "tsx src/get-market.ts",
     "check-get-market": "tsx src/check-get-market.ts",
     "run-old": "tsx src/old.ts",
+    "run-old:ckc": "tsx src/old.ts ckc",
+    "run-old:harvey": "tsx src/old.ts harvey",
     "log-tx": "tsx src/log-tx-events.ts",
     "listen-regis-token": "tsx src/listen-regis-token.ts",
     "save-redis": "tsx src/save-markets-to-redis.ts",

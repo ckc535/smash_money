@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import fs from "fs";
 import path from "path";
+import axios from "axios";
 import { createClient } from "redis";
 import { ClobClient, Side, OrderType, TickSize, UserOrder } from "@polymarket/clob-client";
 import { Wallet } from "ethers";
@@ -16,7 +17,7 @@ let provider = new ethers.providers.WebSocketProvider("wss://polygon.drpc.org");
 
 const contractAbi = fs.readFileSync(path.join(__dirname, "abi", "abi.js"), "utf8");
 const contractAddress = "0x4bfb41d5b3570defd03c39a9a4d8de6bd8b8982e";
-const MAKER_FILTER = "0x0eA574F3204C5c9C0cdEad90392ea0990F4D17e4".toLowerCase();
+const MAKER_FILTER = (process.env.WALLET_ADDRESS!).toLowerCase();
 let contract = new ethers.Contract(contractAddress, contractAbi, provider);
 
 // Aggregated order data - không lưu từng event nữa, lưu tổng luôn
@@ -94,6 +95,50 @@ function roundPrice(p: number): number {
   return Math.round(Number(p) * 100) / 100;
 }
 
+const GAMMA_MARKETS_URL = "https://gamma-api.polymarket.com/markets";
+
+/** Lấy market theo assetId (clob token id) từ Gamma API, trả về TokenData (có conditionId). */
+async function getMarketByAssetId(assetId: string): Promise<TokenData | null> {
+  try {
+    const res = await axios.get<GammaMarket[]>(GAMMA_MARKETS_URL, {
+      params: { clob_token_ids: assetId },
+      timeout: 10_000,
+    });
+    const list = Array.isArray(res.data) ? res.data : [];
+    const raw = list[0];
+    if (!raw?.conditionId) return null;
+
+    let tokenIds: string[] = [];
+    try {
+      tokenIds = typeof raw.clobTokenIds === "string" ? JSON.parse(raw.clobTokenIds) : raw.clobTokenIds ?? [];
+    } catch {
+      return null;
+    }
+    const index = tokenIds.indexOf(assetId);
+    const outcome: "up" | "down" = index === 0 ? "up" : "down";
+
+    return {
+      conditionId: raw.conditionId,
+      slug: raw.slug ?? "",
+      question: raw.question ?? "",
+      tokenId: assetId,
+      negRisk: Boolean(raw.negRisk),
+      outcome,
+    };
+  } catch (err) {
+    process.stderr.write(`[getMarketByAssetId] ${assetId} ${(err as Error)?.message}\n`);
+    return null;
+  }
+}
+
+type GammaMarket = {
+  conditionId?: string;
+  slug?: string;
+  question?: string;
+  clobTokenIds?: string | string[];
+  negRisk?: boolean;
+  [key: string]: unknown;
+};
 /** Flush queue của 1 priceKey cụ thể - pay order ngay */
 async function flushPriceQueue(priceKey: string): Promise<void> {
   const order = priceQueues.get(priceKey);
@@ -133,7 +178,7 @@ async function payOrder(order: AggregatedOrder): Promise<void> {
 
   if (DRY_RUN) {
     // Dùng process.stdout.write thay console.log (nhanh hơn một chút)
-    process.stdout.write(`[DRY_RUN] outcome=${order.tokenData.outcome}, price=${order.price}, size=${orderSize}, oldSize=${oldSize}\n`);
+    process.stdout.write(`[DRY_RUN] outcome=${order.tokenData.slug}, ${order.tokenData.outcome}, price=${order.price}, size=${orderSize}, oldSize=${oldSize}\n`);
     return;
   }
   
@@ -149,6 +194,7 @@ async function payOrder(order: AggregatedOrder): Promise<void> {
       tickSize: String(0.01) as TickSize,
       negRisk: order.tokenData.negRisk,
     }, OrderType.GTC);
+    process.stdout.write(`[payOrder] outcome=${order.tokenData.slug}, ${order.tokenData.outcome}, price=${order.price}, size=${orderSize}, oldSize=${oldSize}\n`);
   } catch (err) {
     // Chỉ log error khi thật sự fail
     process.stderr.write(`[payOrder] Failed ${order.conditionId} ${(err as Error)?.message}\n`);
@@ -163,27 +209,21 @@ function setupContractListener(): void {
 
     const assetId = toStr(takerAssetId);
 
-    // Get tokenData từ cache (đã preload tất cả lúc startup)
-    const tokenData = assetIdToConditionId.get(assetId);
-    if (!tokenData) return; // Skip nếu không có trong cache
+    (async () => {
+      const tokenData = await getMarketByAssetId(assetId);
+      if (!tokenData) return;
 
-    // Calculate price (làm tròn 2 số thập phân)
-    const price = Math.round((makerAmountFilled / takerAmountFilled) * 100) / 100;
-
-    // Tạo order từ event ngay - không queue
-    const order: AggregatedOrder = {
-      conditionId: tokenData.conditionId,
-      assetId: assetId,
-      price: price,
-      totalUsdcAmount: 0, // Không dùng, để 0 cho nhanh
-      totalShareAmount: Number(ethers.utils.formatUnits(takerAmountFilled, 6)),
-      tokenData: tokenData,
-    };
-
-    // Bắn order ngay lập tức - không đợi (bỏ log để tối ưu tốc độ)
-    payOrder(order).catch(err => {
-      // Silent fail - không log để không block event loop
-    });
+      const price = Math.round((makerAmountFilled / takerAmountFilled) * 100) / 100;
+      const order: AggregatedOrder = {
+        conditionId: tokenData.conditionId,
+        assetId,
+        price,
+        totalUsdcAmount: Number(ethers.utils.formatUnits(makerAmountFilled, 6)),
+        totalShareAmount: Number(ethers.utils.formatUnits(takerAmountFilled, 6)),
+        tokenData,
+      };
+      payOrder(order).catch(() => {});
+    })();
   });
 }
 
@@ -242,10 +282,10 @@ async function preloadTokensFromRedis(): Promise<void> {
 
 // Main
 async function main(): Promise<void> {
-  await redisClient.connect();
+  // await redisClient.connect();
   
   // Pre-load tất cả tokens vào cache để tránh await Redis trong event processing
-  await preloadTokensFromRedis();
+  // await preloadTokensFromRedis();
   
   // Khởi tạo ClobClient 1 lần
   clobClient = await getClobClient();

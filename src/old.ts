@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 import cron from "node-cron";
 import { createClient } from "redis";
@@ -7,15 +6,19 @@ import { Wallet } from "ethers";
 import axios from "axios";
 import dotenv from "dotenv";
 import { runRedeem } from "./redeem";
-dotenv.config();
+
+// Chọn file env: npm run run-old:ckc hoặc run-old:harvey, hoặc tsx src/old.ts ckc | harvey
+const envProfile = process.argv[2];
+if (envProfile === "ckc" || envProfile === "harvey") {
+  dotenv.config({ path: path.join(process.cwd(), `.env.${envProfile}`) });
+} else {
+  dotenv.config();
+}
 
 const DRY_RUN = process.env.DRY_RUN !== "false";
-/** Cron2 (redeem): chỉ chạy khi AUTO_CLAIM=true trong .env */
-const AUTO_CLAIM = process.env.AUTO_CLAIM === "true";
 const DIVISION_FACTOR = parseInt(process.env.DIVISION_FACTOR!);
 console.log("DIVISION_FACTOR", DIVISION_FACTOR);
 
-const PAID_ORDERS_PATH = path.join(process.cwd(), "paid-orders.json");
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
 const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
 const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
@@ -253,10 +256,6 @@ async function savePaidOrdersToRedis(orders: PaidOrder[]): Promise<void> {
   await redis.set(REDIS_KEY_PAID_ORDERS, JSON.stringify(orders), { EX: REDIS_EXPIRE_SEC });
 }
 
-function savePaidOrdersToFile(orders: PaidOrder[]): void {
-  fs.writeFileSync(PAID_ORDERS_PATH, JSON.stringify(orders, null, 2), "utf-8");
-}
-
 /** Pay một lệnh (createAndPostOrder) — size từ nhóm activity đã gộp. */
 async function payMoney(
   client: ClobClient,
@@ -355,8 +354,7 @@ async function runCron1(): Promise<void> {
       if (newPaid.length > 0) {
         const updated = [...paidOrders, ...newPaid];
         await savePaidOrdersToRedis(updated);
-        savePaidOrdersToFile(updated);
-        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, lưu paid_orders + file ${PAID_ORDERS_PATH} vào lúc ${new Date().toISOString()}`);
+        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, lưu Redis ${REDIS_KEY_PAID_ORDERS} vào lúc ${new Date().toISOString()}`);
       }
       console.log("[Cron1] Xong.");
       return;
@@ -386,30 +384,27 @@ async function runCron1(): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  console.log("DRY_RUN =", DRY_RUN, "| AUTO_CLAIM =", AUTO_CLAIM);
+  if (envProfile === "ckc" || envProfile === "harvey") {
+    console.log("ENV file: .env." + envProfile);
+  }
+  console.log("DRY_RUN =", DRY_RUN);
   console.log("PROXY_WALLET =", process.env.PROXY_WALLET ?? "(chưa set)");
-  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS, "+ file", PAID_ORDERS_PATH);
+  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS);
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
   setInterval(() => runCron1(), 3 * 1000);
 
   await runCron1();
 
-  if (AUTO_CLAIM) {
-    cron.schedule("*/5 * * * *", () => {
-      console.log("[Cron2] Chạy redeemPositions...");
-      runRedeem().catch((e) =>
-        console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
-      );
-    });
-    console.log("[Cron2] Chạy redeemPositions ngay từ đầu...");
+  // Cron2 (redeem): luôn bật, chạy lúc 0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h (mỗi 3 giờ)
+  cron.schedule("0 0,3,6,9,12,15,18,21 * * *", () => {
+    console.log("[Cron2] Chạy redeemPositions...");
     runRedeem().catch((e) =>
-      console.error("[Cron2] Lỗi redeem (lần đầu):", e instanceof Error ? e.message : e)
+      console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
     );
-  }
+  });
 
-  console.log("Cron1 mỗi 3s (pay). Slug: 5m + 15m.");
-  if (AUTO_CLAIM) console.log("Cron2: redeem mỗi 5 phút, chạy ngay lúc start.");
+  console.log("Cron1 mỗi 3s (pay). Cron2: redeem lúc 0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h. Slug: 5m + 15m.");
 }
 
 main();
