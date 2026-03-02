@@ -1,3 +1,4 @@
+import path from "path";
 import { createWalletClient, Hex, http, encodeFunctionData } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
 import { polygon } from "viem/chains";
@@ -5,7 +6,14 @@ import { RelayClient, RelayerTxType } from "@polymarket/builder-relayer-client";
 import { BuilderConfig } from "@polymarket/builder-signing-sdk";
 import axios from "axios";
 import dotenv from "dotenv";
-dotenv.config();
+
+// Cùng logic với old.ts: đọc .env.ckc hoặc .env.harvey khi chạy với profile (tsx src/old.ts ckc)
+const envProfile = process.argv[2];
+if (envProfile === "ckc" || envProfile === "harvey") {
+  dotenv.config({ path: path.join(process.cwd(), `.env.${envProfile}`) });
+} else {
+  dotenv.config();
+}
 
 const CTF_CONTRACT_ADDRESS = "0x4d97dcd97ec945f40cf65f87097ace5ea0476045";
 const USDCE_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174";
