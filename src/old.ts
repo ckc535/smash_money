@@ -119,7 +119,12 @@ async function getClobClient(): Promise<ClobClient> {
   const CHAIN_ID = 137;
   const signer = new Wallet(process.env.PRIVATE_KEY!);
   const baseClient = new ClobClient(HOST, CHAIN_ID, signer);
-  const userApiCreds = await baseClient.deriveApiKey();
+  // const userApiCreds = await baseClient.deriveApiKey();
+  const userApiCreds = {
+    key: process.env.POLY_BUILDER_API_KEY!,
+    secret: process.env.POLY_BUILDER_SECRET!,
+    passphrase: process.env.POLY_BUILDER_PASSPHRASE!,
+  };
   return new ClobClient(
     HOST,
     CHAIN_ID,
