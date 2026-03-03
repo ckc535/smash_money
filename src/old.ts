@@ -409,7 +409,7 @@ async function main(): Promise<void> {
   console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS);
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
-  setInterval(() => runCron1(), 3 * 1000);
+  setInterval(() => runCron1(), 2 * 1000);
 
   await runCron1();
 

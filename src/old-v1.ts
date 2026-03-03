@@ -277,9 +277,6 @@ async function runCron1(): Promise<void> {
           }
           let price = Math.round(c.avgPrice * 100) / 100;
           const size = getOrderSize(c.slug);
-          if (c.slug.includes("btc-updown-15m")) {
-            price = 0.4;
-          }
           await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
           newPaid.push({
             slug: c.slug,
