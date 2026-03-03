@@ -2,6 +2,10 @@ import path from "path";
 import cron from "node-cron";
 import { createClient } from "redis";
 import { ClobClient, Side, OrderType, TickSize } from "@polymarket/clob-client";
+import {
+  BuilderConfig,
+  BuilderApiKeyCreds,
+} from "@polymarket/builder-signing-sdk";
 import { Wallet } from "ethers";
 import axios from "axios";
 import dotenv from "dotenv";
@@ -120,18 +124,26 @@ async function getClobClient(): Promise<ClobClient> {
   const signer = new Wallet(process.env.PRIVATE_KEY!);
   const baseClient = new ClobClient(HOST, CHAIN_ID, signer);
   const userApiCreds = await baseClient.deriveApiKey();
-  // const userApiCreds = {
-  //   key: process.env.POLY_BUILDER_API_KEY!,
-  //   secret: process.env.POLY_BUILDER_SECRET!,
-  //   passphrase: process.env.POLY_BUILDER_PASSPHRASE!,
-  // };
+  const builderCreds: BuilderApiKeyCreds = {
+    key: process.env.POLY_BUILDER_API_KEY!,
+    secret: process.env.POLY_BUILDER_SECRET!,
+    passphrase: process.env.POLY_BUILDER_PASSPHRASE!,
+  };
+  
+  const builderConfig = new BuilderConfig({
+    localBuilderCreds: builderCreds,
+  });
+  
   return new ClobClient(
     HOST,
     CHAIN_ID,
     signer,
     userApiCreds,
     1,
-    process.env.PROXY_WALLET!
+    process.env.PROXY_WALLET!,
+    undefined,
+    undefined,
+    builderConfig
   );
 }
 
