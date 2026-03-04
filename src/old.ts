@@ -413,15 +413,15 @@ async function main(): Promise<void> {
 
   await runCron1();
 
-  // Cron2 (redeem): luôn bật, chạy lúc 0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h (mỗi 3 giờ)
-  cron.schedule("0 0,3,6,9,12,15,18,21 * * *", () => {
+  // Cron2 (redeem): chạy mỗi 5 phút
+  cron.schedule("*/5 * * * *", () => {
     console.log("[Cron2] Chạy redeemPositions...");
     runRedeem().catch((e) =>
       console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
     );
   });
 
-  console.log("Cron1 mỗi 3s (pay). Cron2: redeem lúc 0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h. Slug: 5m + 15m.");
+  console.log("Cron1 mỗi 2s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
 }
 
 main();
