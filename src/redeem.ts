@@ -50,7 +50,7 @@ interface Position {
 }
 
 async function loadPositions(address: string): Promise<Position[]> {
-  const url = `https://data-api.polymarket.com/positions?user=${address}&sizeThreshold=.1&redeemable=true&limit=100&offset=0`;
+  const url = `https://data-api.polymarket.com/positions?user=${address}&sizeThreshold=.1&redeemable=true&limit=100&offset=0&sortBy=CURRENT&sortDirection=DESC`;
   const response = await axios.get(url);
   const data = response.data;
   const positions = Array.isArray(data) ? (data as Position[]) : [];
