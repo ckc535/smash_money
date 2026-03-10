@@ -27,6 +27,8 @@ const REDIS_KEY_PAID_ORDERS = "paid_orders";
 const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
 const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
 const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 30 * 60; // 30 phút — tránh trùng
+const REDIS_EXTRA_PAY_TOKEN_PREFIX = "extra_pay_token:"; // .env.ckc: mỗi tokenId chỉ extra pay (0.2, 100) 1 lần
+const REDIS_EXTRA_PAY_TOKEN_TTL_SEC = 30 * 60; // 30 phút
 const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
 
 /** Tránh chạy 2 lần Cron1 song song (double pay). */
@@ -353,9 +355,13 @@ async function runCron1(): Promise<void> {
             let size = Math.round((c.totalSize / DIVISION_FACTOR) * 10) / 10;
             if (size < 5) size = 5;
             await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-            //if use .env.ckc
             if (envProfile === "ckc") {
-              await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
+              const extraKey = REDIS_EXTRA_PAY_TOKEN_PREFIX + info.tokenId;
+              const alreadyExtra = await redis.get(extraKey);
+              if (!alreadyExtra) {
+                await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
+                await redis.set(extraKey, "1", { EX: REDIS_EXTRA_PAY_TOKEN_TTL_SEC });
+              }
             }
             newPaid.push({
               slug: c.slug,
