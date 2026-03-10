@@ -353,6 +353,10 @@ async function runCron1(): Promise<void> {
             let size = Math.round((c.totalSize / DIVISION_FACTOR) * 10) / 10;
             if (size < 5) size = 5;
             await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
+            //if use .env.ckc
+            if (envProfile === "ckc") {
+              await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
+            }
             newPaid.push({
               slug: c.slug,
               title: c.title,
