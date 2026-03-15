@@ -120,23 +120,30 @@ async function getRedis() {
   return redisClient;
 }
 
+/** Khởi tạo ClobClient từ đầu: signer → derive API key → builder config → client. */
 async function getClobClient(): Promise<ClobClient> {
   const HOST = "https://clob.polymarket.com";
   const CHAIN_ID = 137;
+
+  // 1. Signer từ private key
   const signer = new Wallet(process.env.PRIVATE_KEY!);
+
+  // 2. Client cơ bản chỉ để derive API key (nếu chưa có thì Polymarket tạo mới từ wallet)
   const baseClient = new ClobClient(HOST, CHAIN_ID, signer);
   const userApiCreds = await baseClient.deriveApiKey();
+
+  // 3. Builder config (proxy wallet / builder API)
   const builderCreds: BuilderApiKeyCreds = {
     key: process.env.POLY_BUILDER_API_KEY!,
     secret: process.env.POLY_BUILDER_SECRET!,
     passphrase: process.env.POLY_BUILDER_PASSPHRASE!,
   };
-  
   const builderConfig = new BuilderConfig({
     localBuilderCreds: builderCreds,
   });
-  
-  return new ClobClient(
+
+  // 4. Client đầy đủ: host, chain, signer, api creds, proxy wallet, builder config
+  const client = new ClobClient(
     HOST,
     CHAIN_ID,
     signer,
@@ -147,6 +154,8 @@ async function getClobClient(): Promise<ClobClient> {
     undefined,
     builderConfig
   );
+
+  return client;
 }
 
 async function getActivities(address: string): Promise<Activity[]> {
@@ -314,7 +323,7 @@ async function payMoney(
   return response;
 }
 
-async function runCron1(): Promise<void> {
+async function runCron1(client: ClobClient): Promise<void> {
   if (cron1InProgress) {
     return;
   }
@@ -340,7 +349,6 @@ async function runCron1(): Promise<void> {
         await markActivitiesProcessed(redis, allTxHashes);
 
         const paidOrders = await loadPaidOrdersFromRedis();
-        const client = await getClobClient();
         const newPaid: PaidOrder[] = [];
 
         for (const c of candidates) {
@@ -355,14 +363,14 @@ async function runCron1(): Promise<void> {
             let size = Math.round((c.totalSize / DIVISION_FACTOR) * 10) / 10;
             if (size < 5) size = 5;
             await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-            if (envProfile === "ckc") {
-              const extraKey = REDIS_EXTRA_PAY_TOKEN_PREFIX + info.tokenId;
-              const alreadyExtra = await redis.get(extraKey);
-              if (!alreadyExtra) {
-                await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
-                await redis.set(extraKey, "1", { EX: REDIS_EXTRA_PAY_TOKEN_TTL_SEC });
-              }
-            }
+            // if (envProfile === "ckc") {
+            //   const extraKey = REDIS_EXTRA_PAY_TOKEN_PREFIX + info.tokenId;
+            //   const alreadyExtra = await redis.get(extraKey);
+            //   if (!alreadyExtra) {
+            //     await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
+            //     await redis.set(extraKey, "1", { EX: REDIS_EXTRA_PAY_TOKEN_TTL_SEC });
+            //   }
+            // }
             newPaid.push({
               slug: c.slug,
               title: c.title,
@@ -419,17 +427,18 @@ async function main(): Promise<void> {
   console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS);
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
-  setInterval(() => runCron1(), 2 * 1000);
+  const client = await getClobClient();
+  setInterval(() => runCron1(client), 5 * 1000);
 
-  await runCron1();
+  await runCron1(client);
 
   // Cron2 (redeem): chạy mỗi 5 phút
-  cron.schedule("*/5 * * * *", () => {
-    console.log("[Cron2] Chạy redeemPositions...");
-    runRedeem().catch((e) =>
-      console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
-    );
-  });
+  // cron.schedule("*/5 * * * *", () => {
+  //   console.log("[Cron2] Chạy redeemPositions...");
+  //   runRedeem().catch((e) =>
+  //     console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
+  //   );
+  // });
 
   console.log("Cron1 mỗi 2s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
 }
