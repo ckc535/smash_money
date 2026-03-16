@@ -298,29 +298,58 @@ async function payMoney(
     console.log("[DRY_RUN] payMoney simulated:", { tokenId, side, price, size, negRisk, tickSize });
     return { dryRun: true };
   }
-  // const response = await client.createAndPostMarketOrder({
-  //   tokenID: tokenId,
-  //   price,
-  //   amount: size,
-  //   side,
-  // },{tickSize: String(0.01) as TickSize, negRisk},
-  //   OrderType.FAK
-  // );
-  // console.log("[payMoney] result:", response);
-  const response = await client.createAndPostOrder(
-    {
-      tokenID: tokenId,
-      price,
-      size,
-      side,
-      //convert to 13 minutes from now
-      expiration: Math.floor(Date.now() / 1000) + 13 * 60 // 13 minutes from now 
-    },{tickSize: String(0.01) as TickSize, negRisk},
-    OrderType.GTD
-  );
-  
-  console.log("[payMoney] result:", response);
-  return response;
+  const maxRetries = 3;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await client.createAndPostOrder(
+        {
+          tokenID: tokenId,
+          price,
+          size,
+          side,
+          //convert to 13 minutes from now
+          expiration: Math.floor(Date.now() / 1000) + 13 * 60, // 13 minutes from now
+        },
+        { tickSize: String(0.01) as TickSize, negRisk },
+        OrderType.GTD
+      );
+
+      console.log("[payMoney] result:", response);
+      return response;
+    } catch (err) {
+      const e = err as unknown as {
+        message?: string;
+        response?: { status?: number; data?: { error?: string } | unknown };
+      };
+      const status = e.response?.status;
+      const dataError =
+        e.response && typeof e.response.data === "object"
+          ? (e.response.data as { error?: string }).error
+          : undefined;
+      const msg = (dataError || e.message || "").toString();
+      const isOrderbookMissing =
+        status === 400 &&
+        typeof msg === "string" &&
+        msg.includes("orderbook") &&
+        msg.includes("does not exist");
+
+      if (isOrderbookMissing && attempt < maxRetries) {
+        console.warn(
+          `[payMoney] orderbook not found (tokenId=${tokenId}), retry ${attempt}/${maxRetries - 1}...`
+        );
+        await new Promise((r) => setTimeout(r, 500));
+        continue;
+      }
+
+      console.error(
+        "[payMoney] Lỗi createAndPostOrder:",
+        status,
+        dataError || e.message || e
+      );
+      throw err;
+    }
+  }
+  throw new Error("payMoney: exhausted retries without success");
 }
 
 async function runCron1(client: ClobClient): Promise<void> {
