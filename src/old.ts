@@ -26,7 +26,7 @@ console.log("DIVISION_FACTOR", DIVISION_FACTOR);
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
 const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
 const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
-const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 30 * 60; // 30 phút — tránh trùng
+const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 120 * 60; // 2 tiếng — tránh trùng
 const REDIS_EXTRA_PAY_TOKEN_PREFIX = "extra_pay_token:"; // .env.ckc: mỗi tokenId chỉ extra pay (0.2, 100) 1 lần
 const REDIS_EXTRA_PAY_TOKEN_TTL_SEC = 30 * 60; // 30 phút
 const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
