@@ -298,7 +298,7 @@ async function payMoney(
     console.log("[DRY_RUN] payMoney simulated:", { tokenId, side, price, size, negRisk, tickSize });
     return { dryRun: true };
   }
-  const maxRetries = 3;
+  const maxRetries = 5;
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const response = await client.createAndPostOrder(
@@ -457,7 +457,7 @@ async function main(): Promise<void> {
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
   const client = await getClobClient();
-  setInterval(() => runCron1(client), 3 * 1000);
+  setInterval(() => runCron1(client), 2 * 1000);
 
   await runCron1(client);
 
