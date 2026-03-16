@@ -428,7 +428,7 @@ async function main(): Promise<void> {
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
   const client = await getClobClient();
-  setInterval(() => runCron1(client), 5 * 1000);
+  setInterval(() => runCron1(client), 3 * 1000);
 
   await runCron1(client);
 
