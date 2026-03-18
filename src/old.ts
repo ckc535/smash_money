@@ -409,7 +409,7 @@ async function runCron1(client: ClobClient): Promise<void> {
               totalUsdcSize: c.totalUsdcSize,
               asset: c.asset,
               //log theo khung giờ GTM +7 (UTC+7)
-              paidAt: new Date(Date.now() + 7 * 60 * 60 * 1000).toISOString(),
+              paidAt: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
             });
           } catch (err) {
             console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
