@@ -408,7 +408,8 @@ async function runCron1(client: ClobClient): Promise<void> {
               totalSize: c.totalSize,
               totalUsdcSize: c.totalUsdcSize,
               asset: c.asset,
-              paidAt: new Date().toISOString(),
+              //log theo khung giờ GTM +7 (UTC+7)
+              paidAt: new Date(Date.now() + 7 * 60 * 60 * 1000).toISOString(),
             });
           } catch (err) {
             console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
@@ -457,19 +458,17 @@ async function main(): Promise<void> {
   console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
 
   const client = await getClobClient();
-  setInterval(() => runCron1(client), 2 * 1000);
+  setInterval(() => runCron1(client), 3 * 1000);
 
   await runCron1(client);
 
-  // Cron2 (redeem): chạy mỗi 5 phút
-  // cron.schedule("*/5 * * * *", () => {
-  //   console.log("[Cron2] Chạy redeemPositions...");
-  //   runRedeem().catch((e) =>
-  //     console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e)
-  //   );
-  // });
+  // Cron2 (redeem): chạy mỗi 1 tiếng
+  cron.schedule("0 * * * *", () => {
+    console.log("[Cron2] Chạy redeemPositions...");
+    runRedeem().catch((e) => console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e));
+  });
 
-  console.log("Cron1 mỗi 2s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
+  console.log("Cron1 mỗi 3s (pay). Cron2: redeem mỗi 1 tiếng. Slug: 5m + 15m.");
 }
 
 main();
