@@ -297,7 +297,7 @@ async function runCron1(client: ClobClient): Promise<void> {
 
         // Lọc conditionId đã mua (Redis TTL 1 tiếng)
         const unpaid: ConditionCandidate[] = [];
-        for (const c of candidates) {
+        for (const c of candidates) { 
           const exists = await redis.get(REDIS_PAID_CONDITION_PREFIX + c.conditionId);
           if (!exists) unpaid.push(c);
         }
@@ -311,7 +311,6 @@ async function runCron1(client: ClobClient): Promise<void> {
         for (const c of unpaid) {
           try {
             if (c.totalUsdcSize <= 50) {
-              console.log(`[Cron1] Bỏ qua ${c.slug}: totalUsdcSize=${c.totalUsdcSize} <= 50`);
               continue;
             }
             const market = await getMarket(client, c.conditionId);
