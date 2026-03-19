@@ -28,7 +28,7 @@ const REDIS_PAID_CONDITION_PREFIX = "paid_condition:";
 const REDIS_PAID_CONDITION_TTL_SEC = 3600; // 1 tiếng
 const CRON1_MAX_RETRIES = 10;
 
-const PAY_PRICE = 0.4;
+const PAY_PRICE = 0.45;
 const PAY_SIZE = 100;
 
 /** Tránh chạy 2 lần Cron1 song song (double pay). */
