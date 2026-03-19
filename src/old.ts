@@ -302,7 +302,6 @@ async function runCron1(client: ClobClient): Promise<void> {
           if (!exists) unpaid.push(c);
         }
         if (unpaid.length === 0) {
-          console.log("[Cron1] Tất cả conditionId đã được mua. Bỏ qua.");
           return;
         }
 
@@ -311,6 +310,10 @@ async function runCron1(client: ClobClient): Promise<void> {
 
         for (const c of unpaid) {
           try {
+            if (c.totalUsdcSize <= 50) {
+              console.log(`[Cron1] Bỏ qua ${c.slug}: totalUsdcSize=${c.totalUsdcSize} <= 50`);
+              continue;
+            }
             const market = await getMarket(client, c.conditionId);
             const info = market[c.outcome];
             if (!info) {
