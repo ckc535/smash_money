@@ -345,7 +345,6 @@ async function runCron1(client: ClobClient): Promise<void> {
           await savePaidOrdersToRedis(updated);
           console.log(`[Cron1] Đã pay ${newPaid.length} conditionId, lưu Redis ${REDIS_KEY_PAID_ORDERS} lúc ${new Date().toISOString()}`);
         }
-        console.log("[Cron1] Xong.");
         return;
       } catch (err) {
         lastErr = err instanceof Error ? err : new Error(String(err));
