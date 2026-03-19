@@ -11,7 +11,7 @@ import axios from "axios";
 import dotenv from "dotenv";
 import { runRedeem } from "./redeem";
 
-// Chọn file env: npm run run-old:ckc hoặc run-old:harvey, hoặc tsx src/old.ts ckc | harvey
+// Chọn file env: tsx src/old.ts ckc | harvey
 const envProfile = process.argv[2];
 if (envProfile === "ckc" || envProfile === "harvey") {
   dotenv.config({ path: path.join(process.cwd(), `.env.${envProfile}`) });
@@ -20,27 +20,25 @@ if (envProfile === "ckc" || envProfile === "harvey") {
 }
 
 const DRY_RUN = process.env.DRY_RUN !== "false";
-const DIVISION_FACTOR = parseInt(process.env.DIVISION_FACTOR!);
-console.log("DIVISION_FACTOR", DIVISION_FACTOR);
 
 const REDIS_KEY_PAID_ORDERS = "paid_orders";
-const REDIS_EXPIRE_SEC = 3600; // 1 tiếng (paid_orders)
-const REDIS_PROCESSED_ACTIVITY_PREFIX = "processed_activity:";
-const REDIS_PROCESSED_ACTIVITY_TTL_SEC = 120 * 60; // 2 tiếng — tránh trùng
-const REDIS_EXTRA_PAY_TOKEN_PREFIX = "extra_pay_token:"; // .env.ckc: mỗi tokenId chỉ extra pay (0.2, 100) 1 lần
-const REDIS_EXTRA_PAY_TOKEN_TTL_SEC = 30 * 60; // 30 phút
-const CRON1_MAX_RETRIES = 10; // Cron1: thử tối đa 10 lần khi lỗi, không được thì thoát process
+const REDIS_EXPIRE_SEC = 3600;
+// conditionId đã mua → không mua lại trong 1 tiếng
+const REDIS_PAID_CONDITION_PREFIX = "paid_condition:";
+const REDIS_PAID_CONDITION_TTL_SEC = 3600; // 1 tiếng
+const CRON1_MAX_RETRIES = 10;
+
+const PAY_PRICE = 0.4;
+const PAY_SIZE = 100;
 
 /** Tránh chạy 2 lần Cron1 song song (double pay). */
 let cron1InProgress = false;
 
-
-
-/** Slug match cả 5m và 15m (gộp 1 file). */
+/** Slug match cả 5m và 15m. */
 const SLUG_MATCH = (slug: string) =>
   slug?.includes("updown-5m") || slug?.includes("updown-15m");
 
-/** Timestamp tối thiểu trong slug (slug dạng btc-updown-5m-1771909800). Chỉ activity có slug timestamp > biến này mới valid. */
+/** Chỉ activity có slug timestamp >= MIN_SLUG_TIMESTAMP mới valid. */
 const MIN_SLUG_TIMESTAMP = process.env.MIN_SLUG_TIMESTAMP
   ? parseInt(process.env.MIN_SLUG_TIMESTAMP, 10)
   : 0;
@@ -64,32 +62,17 @@ interface Activity {
   price: number;
   asset: string;
   outcome: string;
-  transactionHash?: string; // unique — dùng để check đã xử lí hay chưa (Redis 30p)
+  transactionHash?: string;
   [key: string]: unknown;
 }
 
-interface SlugSummary {
+/** Kết quả tổng hợp theo conditionId: outcome có volume cao nhất được chọn. */
+interface ConditionCandidate {
+  conditionId: string;
   slug: string;
   title: string;
-  outcome: string;
-  conditionId: string;
-  totalSize: number;
+  outcome: string;   // outcome thắng volume
   totalUsdcSize: number;
-  avgPrice: number;
-  asset: string;
-}
-
-/** Nhóm activities theo (conditionId, price, asset) — dùng để pay theo từng nhóm; giữ transactionHashes để đánh dấu đã xử lí. */
-interface ActivityGroup {
-  slug: string;
-  title: string;
-  outcome: string;
-  conditionId: string;
-  asset: string;
-  price: number;
-  totalSize: number;
-  totalUsdcSize: number;
-  transactionHashes: string[];
 }
 
 interface PaidOrder {
@@ -97,11 +80,9 @@ interface PaidOrder {
   title: string;
   outcome: string;
   conditionId: string;
-  totalSize: number;
   totalUsdcSize: number;
   asset: string;
   paidAt: string;
-  winner?: boolean;
 }
 
 type MarketOutcomeInfo = {
@@ -120,30 +101,19 @@ async function getRedis() {
   return redisClient;
 }
 
-/** Khởi tạo ClobClient từ đầu: signer → derive API key → builder config → client. */
 async function getClobClient(): Promise<ClobClient> {
   const HOST = "https://clob.polymarket.com";
   const CHAIN_ID = 137;
-
-  // 1. Signer từ private key
   const signer = new Wallet(process.env.PRIVATE_KEY!);
-
-  // 2. Client cơ bản chỉ để derive API key (nếu chưa có thì Polymarket tạo mới từ wallet)
   const baseClient = new ClobClient(HOST, CHAIN_ID, signer);
   const userApiCreds = await baseClient.deriveApiKey();
-
-  // 3. Builder config (proxy wallet / builder API)
   const builderCreds: BuilderApiKeyCreds = {
     key: process.env.POLY_BUILDER_API_KEY!,
     secret: process.env.POLY_BUILDER_SECRET!,
     passphrase: process.env.POLY_BUILDER_PASSPHRASE!,
   };
-  const builderConfig = new BuilderConfig({
-    localBuilderCreds: builderCreds,
-  });
-
-  // 4. Client đầy đủ: host, chain, signer, api creds, proxy wallet, builder config
-  const client = new ClobClient(
+  const builderConfig = new BuilderConfig({ localBuilderCreds: builderCreds });
+  return new ClobClient(
     HOST,
     CHAIN_ID,
     signer,
@@ -154,15 +124,13 @@ async function getClobClient(): Promise<ClobClient> {
     undefined,
     builderConfig
   );
-
-  return client;
 }
 
 async function getActivities(address: string): Promise<Activity[]> {
   try {
     const response = await axios.get(
       `https://data-api.polymarket.com/activity?user=${address}&limit=50&offset=0`,
-      { timeout: 5000, validateStatus: () => true}
+      { timeout: 5000, validateStatus: () => true }
     );
     const body = response.data;
     const raw = Array.isArray(body) ? body : body?.data ?? [];
@@ -179,7 +147,8 @@ async function getActivities(address: string): Promise<Activity[]> {
     return data;
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
-    const code = err && typeof (err as { code?: string }).code === "string" ? (err as { code: string }).code : "";
+    const code = err && typeof (err as { code?: string }).code === "string"
+      ? (err as { code: string }).code : "";
     console.warn("[getActivities] Lỗi request (bỏ qua):", code || msg);
     return [];
   }
@@ -195,88 +164,59 @@ async function getMarket(
   const data: Record<string, MarketOutcomeInfo> = {};
   for (const token of market.tokens ?? []) {
     const t = token as { token_id: string; outcome: string; price: number; winner?: boolean };
-    data[t.outcome] = {
-      tokenId: t.token_id,
-      price: t.price,
-      tickSize,
-      negRisk,
-      winner: t.winner,
-    };
+    data[t.outcome] = { tokenId: t.token_id, price: t.price, tickSize, negRisk, winner: t.winner };
   }
   return data;
 }
 
-/** Lọc activities chưa được xử lí (transactionHash chưa có trong Redis). */
-async function filterUnprocessedActivities(
-  redis: Awaited<ReturnType<typeof getRedis>>,
-  activities: Activity[]
-): Promise<Activity[]> {
-  const withTxHash = activities.filter((a) => a.transactionHash);
-  if (withTxHash.length === 0) return [];
-  const keys = withTxHash.map((a) => REDIS_PROCESSED_ACTIVITY_PREFIX + (a.transactionHash ?? ""));
-  const existing = await redis.mGet(keys);
-  const processedSet = new Set(
-    keys.filter((_, i) => existing[i] != null)
-  );
-  return withTxHash.filter((a) => !processedSet.has(REDIS_PROCESSED_ACTIVITY_PREFIX + (a.transactionHash ?? "")));
-}
-
-/** Đánh dấu các activity (theo transactionHash) đã xử lí — Redis TTL 30 phút. Gọi trước pay để tránh race (cron chạy lại pay 2 lần). */
-async function markActivitiesProcessed(
-  redis: Awaited<ReturnType<typeof getRedis>>,
-  transactionHashes: string[]
-): Promise<void> {
-  for (const tx of transactionHashes) {
-    await redis.set(REDIS_PROCESSED_ACTIVITY_PREFIX + tx, "1", { EX: REDIS_PROCESSED_ACTIVITY_TTL_SEC });
-  }
-}
-
-/** Gộp activities theo (conditionId, price, asset); tổng size và usdcSize; lưu danh sách transactionHash để đánh dấu sau khi pay. */
-function aggregateByConditionIdPriceAsset(activities: Activity[]): ActivityGroup[] {
-  const key = (a: Activity) =>
-    `${String(a.conditionId ?? "")}\n${Number(a.price)}\n${String(a.asset ?? "")}`;
-  const byKey = new Map<string, Activity[]>();
+/**
+ * Gộp activities theo conditionId.
+ * Với mỗi conditionId: cộng dồn usdcSize theo từng outcome → chọn outcome có usdcSize cao nhất.
+ */
+function aggregateByConditionId(activities: Activity[]): ConditionCandidate[] {
+  const byCondition = new Map<string, Map<string, { usdcSize: number; slug: string; title: string }>>();
   for (const a of activities) {
-    const k = key(a);
-    const list = byKey.get(k) ?? [];
-    list.push(a);
-    byKey.set(k, list);
+    const cid = String(a.conditionId ?? "");
+    if (!cid) continue;
+    const outcome = String(a.outcome ?? "");
+    if (!byCondition.has(cid)) byCondition.set(cid, new Map());
+    const outcomeMap = byCondition.get(cid)!;
+    const existing = outcomeMap.get(outcome);
+    if (existing) {
+      existing.usdcSize += Number(a.usdcSize);
+    } else {
+      outcomeMap.set(outcome, { usdcSize: Number(a.usdcSize), slug: a.slug, title: String(a.title ?? "") });
+    }
   }
-  return Array.from(byKey.entries()).map(([, list]) => {
-    const totalSize = list.reduce((s, a) => s + Number(a.size), 0);
-    const totalUsdcSize = list.reduce((s, a) => s + Number(a.usdcSize), 0);
-    const first = list[0]!;
-    const transactionHashes = list
-      .map((a) => a.transactionHash)
-      .filter((t): t is string => Boolean(t));
-    return {
-      slug: first.slug,
-      title: String(first.title ?? ""),
-      outcome: String(first.outcome ?? ""),
-      conditionId: String(first.conditionId ?? ""),
-      asset: String(first.asset ?? ""),
-      price: Number(first.price),
-      totalSize,
-      totalUsdcSize,
-      transactionHashes,
-    };
-  });
-}
 
-/** Trả về tất cả nhóm để pay (không lọc theo min USDC). */
-function pickCandidatesToPayFromGroups(groups: ActivityGroup[]): ActivityGroup[] {
-  return groups;
+  const result: ConditionCandidate[] = [];
+  for (const [conditionId, outcomeMap] of byCondition.entries()) {
+    let bestOutcome = "";
+    let bestEntry: { usdcSize: number; slug: string; title: string } | null = null;
+    for (const [outcome, entry] of outcomeMap.entries()) {
+      if (!bestEntry || entry.usdcSize > bestEntry.usdcSize) {
+        bestOutcome = outcome;
+        bestEntry = entry;
+      }
+    }
+    if (bestEntry) {
+      result.push({
+        conditionId,
+        slug: bestEntry.slug,
+        title: bestEntry.title,
+        outcome: bestOutcome,
+        totalUsdcSize: bestEntry.usdcSize,
+      });
+    }
+  }
+  return result;
 }
 
 async function loadPaidOrdersFromRedis(): Promise<PaidOrder[]> {
   const redis = await getRedis();
   const raw = await redis.get(REDIS_KEY_PAID_ORDERS);
   if (!raw) return [];
-  try {
-    return JSON.parse(raw) as PaidOrder[];
-  } catch {
-    return [];
-  }
+  try { return JSON.parse(raw) as PaidOrder[]; } catch { return []; }
 }
 
 async function savePaidOrdersToRedis(orders: PaidOrder[]): Promise<void> {
@@ -284,7 +224,6 @@ async function savePaidOrdersToRedis(orders: PaidOrder[]): Promise<void> {
   await redis.set(REDIS_KEY_PAID_ORDERS, JSON.stringify(orders), { EX: REDIS_EXPIRE_SEC });
 }
 
-/** Pay một lệnh (createAndPostOrder) — size từ nhóm activity đã gộp. */
 async function payMoney(
   client: ClobClient,
   tokenId: string,
@@ -307,13 +246,11 @@ async function payMoney(
           price,
           size,
           side,
-          //convert to 13 minutes from now
-          expiration: Math.floor(Date.now() / 1000) + 13 * 60, // 13 minutes from now
+          expiration: Math.floor(Date.now() / 1000) + 13 * 60,
         },
         { tickSize: String(0.01) as TickSize, negRisk },
         OrderType.GTD
       );
-
       console.log("[payMoney] result:", response);
       return response;
     } catch (err) {
@@ -328,24 +265,14 @@ async function payMoney(
           : undefined;
       const msg = (dataError || e.message || "").toString();
       const isOrderbookMissing =
-        status === 400 &&
-        typeof msg === "string" &&
-        msg.includes("orderbook") &&
-        msg.includes("does not exist");
+        status === 400 && msg.includes("orderbook") && msg.includes("does not exist");
 
       if (isOrderbookMissing && attempt < maxRetries) {
-        console.warn(
-          `[payMoney] orderbook not found (tokenId=${tokenId}), retry ${attempt}/${maxRetries - 1}...`
-        );
+        console.warn(`[payMoney] orderbook not found (tokenId=${tokenId}), retry ${attempt}/${maxRetries}...`);
         await new Promise((r) => setTimeout(r, 500));
         continue;
       }
-
-      console.error(
-        "[payMoney] Lỗi createAndPostOrder:",
-        status,
-        dataError || e.message || e
-      );
+      console.error("[payMoney] Lỗi createAndPostOrder:", status, dataError || e.message || e);
       throw err;
     }
   }
@@ -353,9 +280,7 @@ async function payMoney(
 }
 
 async function runCron1(client: ClobClient): Promise<void> {
-  if (cron1InProgress) {
-    return;
-  }
+  if (cron1InProgress) return;
   cron1InProgress = true;
   let lastErr: Error | undefined;
   try {
@@ -363,24 +288,28 @@ async function runCron1(client: ClobClient): Promise<void> {
       try {
         const address = process.env.WALLET_ADDRESS ?? "0x88f46b9e5d86b4fb85be55ab0ec4004264b9d4db";
         const activities = await getActivities(address);
-        const redis = await getRedis();
-        const unprocessed = await filterUnprocessedActivities(redis, activities);
-        if (unprocessed.length === 0) {
-          return;
-        }
-        const groups = aggregateByConditionIdPriceAsset(unprocessed);
-        const candidates = pickCandidatesToPayFromGroups(groups);
+        if (activities.length === 0) return;
+
+        const candidates = aggregateByConditionId(activities);
         if (candidates.length === 0) return;
 
-        // Đánh dấu Redis sớm: tất cả txHash của tất cả candidate ngay lập tức,
-        // để cron lần sau không lấy trùng (tránh double pay khi 2 run chồng lên nhau).
-        const allTxHashes = candidates.flatMap((c) => c.transactionHashes);
-        await markActivitiesProcessed(redis, allTxHashes);
+        const redis = await getRedis();
+
+        // Lọc conditionId đã mua (Redis TTL 1 tiếng)
+        const unpaid: ConditionCandidate[] = [];
+        for (const c of candidates) {
+          const exists = await redis.get(REDIS_PAID_CONDITION_PREFIX + c.conditionId);
+          if (!exists) unpaid.push(c);
+        }
+        if (unpaid.length === 0) {
+          console.log("[Cron1] Tất cả conditionId đã được mua. Bỏ qua.");
+          return;
+        }
 
         const paidOrders = await loadPaidOrdersFromRedis();
         const newPaid: PaidOrder[] = [];
 
-        for (const c of candidates) {
+        for (const c of unpaid) {
           try {
             const market = await getMarket(client, c.conditionId);
             const info = market[c.outcome];
@@ -388,87 +317,81 @@ async function runCron1(client: ClobClient): Promise<void> {
               console.warn("[Cron1] Không tìm thấy outcome", c.outcome, "cho", c.slug);
               continue;
             }
-            let price = Math.round(c.price * 100) / 100;
-            let size = Math.round((c.totalSize / DIVISION_FACTOR) * 10) / 10;
-            if (size < 5) size = 5;
-            await payMoney(client, info.tokenId, Side.BUY, price, size, info.negRisk, info.tickSize);
-            // if (envProfile === "ckc") {
-            //   const extraKey = REDIS_EXTRA_PAY_TOKEN_PREFIX + info.tokenId;
-            //   const alreadyExtra = await redis.get(extraKey);
-            //   if (!alreadyExtra) {
-            //     await payMoney(client, info.tokenId, Side.BUY, 0.2, 100, info.negRisk, info.tickSize);
-            //     await redis.set(extraKey, "1", { EX: REDIS_EXTRA_PAY_TOKEN_TTL_SEC });
-            //   }
-            // }
+            // Đánh dấu Redis trước khi pay để tránh race condition
+            await redis.set(
+              REDIS_PAID_CONDITION_PREFIX + c.conditionId,
+              "1",
+              { EX: REDIS_PAID_CONDITION_TTL_SEC }
+            );
+            await payMoney(client, info.tokenId, Side.BUY, PAY_PRICE, PAY_SIZE, info.negRisk, info.tickSize);
             newPaid.push({
               slug: c.slug,
               title: c.title,
               outcome: c.outcome,
               conditionId: c.conditionId,
-              totalSize: c.totalSize,
               totalUsdcSize: c.totalUsdcSize,
-              asset: c.asset,
-              //log theo khung giờ GTM +7 (UTC+7)
-              paidAt: new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' })
+              asset: "",
+              paidAt: new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" }),
             });
           } catch (err) {
             console.error("[Cron1] Lỗi payMoney cho", c.slug, (err as Error)?.message);
           }
         }
 
-      if (newPaid.length > 0) {
-        const updated = [...paidOrders, ...newPaid];
-        await savePaidOrdersToRedis(updated);
-        console.log(`[Cron1] Đã pay ${newPaid.length} nhóm, lưu Redis ${REDIS_KEY_PAID_ORDERS} vào lúc ${new Date().toISOString()}`);
-      }
-      console.log("[Cron1] Xong.");
-      return;
-    } catch (err) {
-      lastErr = err instanceof Error ? err : new Error(String(err));
-      const code = err && typeof (err as { code?: string }).code === "string" ? (err as { code: string }).code : "";
-      console.error(
-        `[Cron1] Lỗi lần ${attempt}/${CRON1_MAX_RETRIES}:`,
-        code || lastErr.message
-      );
-      if (attempt < CRON1_MAX_RETRIES) {
-        console.log(`[Cron1] Thử lại sau 3s... (còn ${CRON1_MAX_RETRIES - attempt} lần)`);
-        await new Promise((r) => setTimeout(r, 3000));
+        if (newPaid.length > 0) {
+          const updated = [...paidOrders, ...newPaid];
+          await savePaidOrdersToRedis(updated);
+          console.log(`[Cron1] Đã pay ${newPaid.length} conditionId, lưu Redis ${REDIS_KEY_PAID_ORDERS} lúc ${new Date().toISOString()}`);
+        }
+        console.log("[Cron1] Xong.");
+        return;
+      } catch (err) {
+        lastErr = err instanceof Error ? err : new Error(String(err));
+        const code = err && typeof (err as { code?: string }).code === "string"
+          ? (err as { code: string }).code : "";
+        console.error(`[Cron1] Lỗi lần ${attempt}/${CRON1_MAX_RETRIES}:`, code || lastErr.message);
+        if (attempt < CRON1_MAX_RETRIES) {
+          console.log(`[Cron1] Thử lại sau 3s... (còn ${CRON1_MAX_RETRIES - attempt} lần)`);
+          await new Promise((r) => setTimeout(r, 3000));
+        }
       }
     }
-  }
-  console.error(
-    "[Cron1] Đã thử",
-    CRON1_MAX_RETRIES,
-    "lần không thành công. Lỗi cuối:",
-    lastErr?.message ?? "unknown"
-  );
-  process.exit(1);
+    console.error("[Cron1] Đã thử", CRON1_MAX_RETRIES, "lần không thành công. Lỗi cuối:", lastErr?.message ?? "unknown");
+    process.exit(1);
   } finally {
     cron1InProgress = false;
   }
 }
 
+async function printCheckIp(): Promise<void> {
+  try {
+    const res = await axios.get("https://api.ipify.org?format=text", { timeout: 5000 });
+    console.log("Check IP:", res.data?.trim() ?? "(unknown)");
+  } catch (e) {
+    console.log("Check IP: (failed)", e instanceof Error ? e.message : e);
+  }
+}
+
 async function main(): Promise<void> {
+  await printCheckIp();
   if (envProfile === "ckc" || envProfile === "harvey") {
     console.log("ENV file: .env." + envProfile);
   }
   console.log("DRY_RUN =", DRY_RUN);
   console.log("PROXY_WALLET =", process.env.PROXY_WALLET ?? "(chưa set)");
-  console.log("Paid orders: Redis", REDIS_KEY_PAID_ORDERS);
-  console.log("Activity đã xử lí: Redis", REDIS_PROCESSED_ACTIVITY_PREFIX + "<txHash> TTL", REDIS_PROCESSED_ACTIVITY_TTL_SEC, "s (30p)");
+  console.log(`Pay: price=${PAY_PRICE}, size=${PAY_SIZE}. conditionId đã mua: Redis ${REDIS_PAID_CONDITION_PREFIX}<conditionId> TTL ${REDIS_PAID_CONDITION_TTL_SEC}s (1h)`);
 
   const client = await getClobClient();
-  setInterval(() => runCron1(client), 3 * 1000);
-
+  setInterval(() => runCron1(client), 10 * 1000);
   await runCron1(client);
 
-  // Cron2 (redeem): chạy mỗi 1 tiếng
-  cron.schedule("0 * * * *", () => {
+  // Cron2 (redeem): chạy mỗi 5 phút
+  cron.schedule("*/5 * * * *", () => {
     console.log("[Cron2] Chạy redeemPositions...");
     runRedeem().catch((e) => console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e));
   });
 
-  console.log("Cron1 mỗi 3s (pay). Cron2: redeem mỗi 1 tiếng. Slug: 5m + 15m.");
+  console.log("Cron1 mỗi 10s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
 }
 
 main();
