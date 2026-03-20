@@ -246,7 +246,7 @@ async function payMoney(
           price,
           size,
           side,
-          expiration: Math.floor(Date.now() / 1000) + 13 * 60,
+          // expiration: Math.floor(Date.now() / 1000) + 13 * 60,
         },
         { tickSize: String(0.01) as TickSize, negRisk },
         OrderType.GTD
