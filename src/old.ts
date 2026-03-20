@@ -28,7 +28,6 @@ const REDIS_PAID_CONDITION_PREFIX = "paid_condition:";
 const REDIS_PAID_CONDITION_TTL_SEC = 3600; // 1 tiếng
 const CRON1_MAX_RETRIES = 10;
 
-const PAY_PRICE = 0.45;
 const PAY_SIZE = 100;
 
 /** Tránh chạy 2 lần Cron1 song song (double pay). */
@@ -73,6 +72,7 @@ interface ConditionCandidate {
   title: string;
   outcome: string;   // outcome thắng volume
   totalUsdcSize: number;
+  avgPrice: number;  // trung bình giá của các activity thuộc outcome được chọn
 }
 
 interface PaidOrder {
@@ -174,7 +174,14 @@ async function getMarket(
  * Với mỗi conditionId: cộng dồn usdcSize theo từng outcome → chọn outcome có usdcSize cao nhất.
  */
 function aggregateByConditionId(activities: Activity[]): ConditionCandidate[] {
-  const byCondition = new Map<string, Map<string, { usdcSize: number; slug: string; title: string }>>();
+  const byCondition = new Map<string, Map<string, {
+    usdcSize: number;
+    priceSum: number;
+    count: number;
+    slug: string;
+    title: string;
+  }>>();
+
   for (const a of activities) {
     const cid = String(a.conditionId ?? "");
     if (!cid) continue;
@@ -184,15 +191,23 @@ function aggregateByConditionId(activities: Activity[]): ConditionCandidate[] {
     const existing = outcomeMap.get(outcome);
     if (existing) {
       existing.usdcSize += Number(a.usdcSize);
+      existing.priceSum += Number(a.price);
+      existing.count += 1;
     } else {
-      outcomeMap.set(outcome, { usdcSize: Number(a.usdcSize), slug: a.slug, title: String(a.title ?? "") });
+      outcomeMap.set(outcome, {
+        usdcSize: Number(a.usdcSize),
+        priceSum: Number(a.price),
+        count: 1,
+        slug: a.slug,
+        title: String(a.title ?? ""),
+      });
     }
   }
 
   const result: ConditionCandidate[] = [];
   for (const [conditionId, outcomeMap] of byCondition.entries()) {
     let bestOutcome = "";
-    let bestEntry: { usdcSize: number; slug: string; title: string } | null = null;
+    let bestEntry: { usdcSize: number; priceSum: number; count: number; slug: string; title: string } | null = null;
     for (const [outcome, entry] of outcomeMap.entries()) {
       if (!bestEntry || entry.usdcSize > bestEntry.usdcSize) {
         bestOutcome = outcome;
@@ -200,12 +215,14 @@ function aggregateByConditionId(activities: Activity[]): ConditionCandidate[] {
       }
     }
     if (bestEntry) {
+      const avgPrice = Math.round((bestEntry.priceSum / bestEntry.count) * 100) / 100;
       result.push({
         conditionId,
         slug: bestEntry.slug,
         title: bestEntry.title,
         outcome: bestOutcome,
         totalUsdcSize: bestEntry.usdcSize,
+        avgPrice,
       });
     }
   }
@@ -325,7 +342,7 @@ async function runCron1(client: ClobClient): Promise<void> {
               "1",
               { EX: REDIS_PAID_CONDITION_TTL_SEC }
             );
-            await payMoney(client, info.tokenId, Side.BUY, PAY_PRICE, PAY_SIZE, info.negRisk, info.tickSize);
+            await payMoney(client, info.tokenId, Side.BUY, c.avgPrice, PAY_SIZE, info.negRisk, info.tickSize);
             newPaid.push({
               slug: c.slug,
               title: c.title,
@@ -380,10 +397,10 @@ async function main(): Promise<void> {
   }
   console.log("DRY_RUN =", DRY_RUN);
   console.log("PROXY_WALLET =", process.env.PROXY_WALLET ?? "(chưa set)");
-  console.log(`Pay: price=${PAY_PRICE}, size=${PAY_SIZE}. conditionId đã mua: Redis ${REDIS_PAID_CONDITION_PREFIX}<conditionId> TTL ${REDIS_PAID_CONDITION_TTL_SEC}s (1h)`);
+  console.log(`Pay: price=avgPrice(activities), size=${PAY_SIZE}. conditionId đã mua: Redis ${REDIS_PAID_CONDITION_PREFIX}<conditionId> TTL ${REDIS_PAID_CONDITION_TTL_SEC}s (1h)`);
 
   const client = await getClobClient();
-  setInterval(() => runCron1(client), 10 * 1000);
+  setInterval(() => runCron1(client), 5 * 1000);
   await runCron1(client);
 
   // Cron2 (redeem): chạy mỗi 5 phút
@@ -392,7 +409,7 @@ async function main(): Promise<void> {
     runRedeem().catch((e) => console.error("[Cron2] Lỗi redeem:", e instanceof Error ? e.message : e));
   });
 
-  console.log("Cron1 mỗi 10s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
+  console.log("Cron1 mỗi 5s (pay). Cron2: redeem mỗi 5 phút. Slug: 5m + 15m.");
 }
 
 main();
