@@ -249,7 +249,7 @@ async function payMoney(
           // expiration: Math.floor(Date.now() / 1000) + 13 * 60,
         },
         { tickSize: String(0.01) as TickSize, negRisk },
-        OrderType.GTD
+        OrderType.GTC
       );
       console.log("[payMoney] result:", response);
       return response;
