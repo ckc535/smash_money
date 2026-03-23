@@ -119,7 +119,7 @@ export async function runRedeem(): Promise<void> {
 
   const redeemablePositions = allPositions.filter(
     (pos) =>
-      (pos.curPrice >= RESOLVED_HIGH) &&
+      ((pos.curPrice >= RESOLVED_HIGH) || (pos.curPrice <= RESOLVED_LOW)) &&
       pos.redeemable === true
   );
 
